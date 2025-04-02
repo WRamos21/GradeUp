@@ -8,6 +8,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.gradeup.databinding.ActivityMainBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,5 +34,21 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        // Recebimento dos dados de maneira assincrona
+        val service = RetrofitClient.createService(ClassService::class.java)
+        val call: Call<List<ClassEntity>> = service.list()
+        call.enqueue(object : Callback<List<ClassEntity>>{
+            override fun onResponse(call: Call<List<ClassEntity>>, response: Response<List<ClassEntity>>) {
+                val list = response.body()
+            }
+
+            override fun onFailure(call: Call<List<ClassEntity>>, t: Throwable) {
+                val s = ""
+            }
+
+        })
+
     }
 }

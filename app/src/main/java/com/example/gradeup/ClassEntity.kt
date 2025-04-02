@@ -46,18 +46,4 @@ class ClassEntity {
     @SerializedName("docente_pratica")
     var docentePratica: String = ""
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
