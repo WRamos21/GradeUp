@@ -1,4 +1,4 @@
-package com.example.gradeup
+package com.example.gradeup.data.remote
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -13,7 +13,7 @@ class RetrofitClient {
 
         private fun getRetrofitInstance(): Retrofit {
             val http = OkHttpClient.Builder()
-            if (!::INSTANCE.isInitialized) {
+            if (!Companion::INSTANCE.isInitialized) {
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(http.build())

@@ -7,6 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.gradeup.data.model.SubjectModel
+import com.example.gradeup.data.remote.RetrofitClient
+import com.example.gradeup.data.remote.SubjectService
+import com.example.gradeup.data.repository.SubjectRepository
 import com.example.gradeup.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,19 +40,24 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-        // Recebimento dos dados de maneira assincrona
-        val service = RetrofitClient.createService(ClassService::class.java)
-        val call: Call<List<ClassEntity>> = service.list()
-        call.enqueue(object : Callback<List<ClassEntity>>{
-            override fun onResponse(call: Call<List<ClassEntity>>, response: Response<List<ClassEntity>>) {
-                val list = response.body()
-            }
+        val subRepo = SubjectRepository()
+        subRepo.getSubjects()
 
-            override fun onFailure(call: Call<List<ClassEntity>>, t: Throwable) {
-                val s = ""
-            }
 
-        })
+
+//        // Recebimento dos dados de maneira assincrona
+//        val service = RetrofitClient.createService(SubjectService::class.java)
+//        val call: Call<List<SubjectModel>> = service.list()
+//        call.enqueue(object : Callback<List<SubjectModel>>{
+//            override fun onResponse(call: Call<List<SubjectModel>>, response: Response<List<SubjectModel>>) {
+//                val list = response.body()
+//            }
+//
+//            override fun onFailure(call: Call<List<SubjectModel>>, t: Throwable) {
+//                val s = ""
+//            }
+//
+//        })
 
     }
 }

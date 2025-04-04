@@ -1,8 +1,8 @@
-package com.example.gradeup
+package com.example.gradeup.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class ClassEntity {
+class SubjectModel {
 
     @SerializedName("codigo")
     var codigo: String = ""
