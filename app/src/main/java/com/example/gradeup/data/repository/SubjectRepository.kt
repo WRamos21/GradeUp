@@ -15,11 +15,11 @@ class SubjectRepository () {
         val call: Call<List<SubjectModel>> = remote.list()
 
         call.enqueue(object : Callback<List<SubjectModel>> {
-            override fun onResponse(
-                call: Call<List<SubjectModel>>,
-                response: Response<List<SubjectModel>>
-            ) {
-                val list = response.body()
+            override fun onResponse( call: Call<List<SubjectModel>>, response: Response<List<SubjectModel>>) {
+                if (response.code() == 200){
+                    val list = response.body()
+                }
+
             }
 
             override fun onFailure(call: Call<List<SubjectModel>>, t: Throwable) {

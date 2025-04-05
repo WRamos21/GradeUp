@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.gradeup.data.repository.SubjectRepository
 import com.example.gradeup.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -22,11 +23,13 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val repository = SubjectRepository()
+        val factory = HomeViewModelFactory(repository)
+        val homeViewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
+        repository.getSubjects()
 
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {

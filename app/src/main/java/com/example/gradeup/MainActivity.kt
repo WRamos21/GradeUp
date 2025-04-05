@@ -39,25 +39,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-        val subRepo = SubjectRepository()
-        subRepo.getSubjects()
-
-
-
-//        // Recebimento dos dados de maneira assincrona
-//        val service = RetrofitClient.createService(SubjectService::class.java)
-//        val call: Call<List<SubjectModel>> = service.list()
-//        call.enqueue(object : Callback<List<SubjectModel>>{
-//            override fun onResponse(call: Call<List<SubjectModel>>, response: Response<List<SubjectModel>>) {
-//                val list = response.body()
-//            }
-//
-//            override fun onFailure(call: Call<List<SubjectModel>>, t: Throwable) {
-//                val s = ""
-//            }
-//
-//        })
-
     }
 }
