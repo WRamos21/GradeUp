@@ -9,6 +9,6 @@ interface SubjectService {
 
     @Headers("apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1a21reWFlb3lsYmJwaXl2Zm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIxNTk0NTcsImV4cCI6MjA1NzczNTQ1N30.DMYpxP-rYP8DgE3-K-ZmEJPqlcxKSyWj2Cr3OcGgpiM")
     @GET("turmas")
-    fun list(): Call<List<SubjectModel>>
+    fun listAllSubjects(): Call<List<SubjectModel>>
 
 }

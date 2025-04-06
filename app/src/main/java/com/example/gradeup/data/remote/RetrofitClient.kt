@@ -24,8 +24,8 @@ class RetrofitClient {
         }
 
         // Criação generica de service
-        fun <S>createService(abc: Class<S>): S{
-            return getRetrofitInstance().create(abc)
+        fun <S>createService(serviceClass: Class<S>): S{
+            return getRetrofitInstance().create(serviceClass)
         }
     }
 }

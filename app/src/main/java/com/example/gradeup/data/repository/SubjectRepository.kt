@@ -1,33 +1,46 @@
 package com.example.gradeup.data.repository
 
+import android.content.Context
+import com.example.gradeup.R
+import com.example.gradeup.data.constants.constants
 import com.example.gradeup.data.model.SubjectModel
+import com.example.gradeup.data.remote.APIListener
 import com.example.gradeup.data.remote.RetrofitClient
 import com.example.gradeup.data.remote.SubjectService
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SubjectRepository () {
+/* Precisei apssar o contexto apra acessar o arquivo de strings
+Reponse.erroBody.string é um jason que pode ter mais do que só strings, por isso preciso modificar-lo
+
+*/
+class SubjectRepository (val context: Context) {
 
     // Recebimento dos dados de maneira assincrona
     private val remote = RetrofitClient.createService(SubjectService::class.java)
-    fun getSubjects() {
-        val call: Call<List<SubjectModel>> = remote.list()
+
+    fun getAllSubjects(listener: APIListener<List<SubjectModel>>) {
+        val call: Call<List<SubjectModel>> = remote.listAllSubjects()
 
         call.enqueue(object : Callback<List<SubjectModel>> {
             override fun onResponse( call: Call<List<SubjectModel>>, response: Response<List<SubjectModel>>) {
-                if (response.code() == 200){
-                    val list = response.body()
+                if (response.code() == constants.HTTP.SUCCESS_CODE){
+                        val list = response.body()
+                    response.body()?.let { listener.onSucces(it) }
+                } else {
+                    listener.onFailure(jsonToString(response.errorBody()!!.string()))
                 }
-
             }
 
             override fun onFailure(call: Call<List<SubjectModel>>, t: Throwable) {
-                val s = ""
+                listener.onFailure(context.getString(R.string.ERROR_UNEXPECTED))
             }
-
         })
+    }
 
-
+    private fun jsonToString(json: String): String {
+        return Gson().fromJson(json, String::class.java)
     }
 }
