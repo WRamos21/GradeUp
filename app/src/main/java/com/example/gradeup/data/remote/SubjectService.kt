@@ -9,7 +9,7 @@ import retrofit2.http.Headers
 
 interface SubjectService {
 
-    @Headers("apikey: ${BuildConfig.apiKeySafe}")
+    @Headers("apikey: ${BuildConfig.SUPABASE_KEY_ANON}")
     @GET("turmas")
     fun listAllSubjects(): Call<List<SubjectModel>>
 

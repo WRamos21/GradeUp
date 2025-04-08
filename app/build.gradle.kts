@@ -22,7 +22,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "apiKeySafe", properties.getProperty("SUPABSE_API_KEY_anon"))
+        buildConfigField("String", "SUPABASE_KEY_ANON", properties.getProperty("SUPABSE_API_KEY_anon"))
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
