@@ -1,6 +1,7 @@
 package com.example.gradeup.ui.home
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,19 +13,21 @@ import com.example.gradeup.data.repository.SubjectRepository
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: SubjectRepository = SubjectRepository(application.applicationContext)
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    private val _subjects = MutableLiveData<List<SubjectModel>>()
+    val subjects: LiveData<List<SubjectModel>> = _subjects
+
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> = _errorMessage
 
     fun getAllSubjects(){
         repository.getAllSubjects(object : APIListener<List<SubjectModel>> {
             override fun onSucces(result: List<SubjectModel>) {
+                _subjects.value = result
             }
 
             override fun onFailure(messageError: String) {
+                _errorMessage.value = messageError
             }
-
         })
     }
 }

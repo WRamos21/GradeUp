@@ -8,14 +8,11 @@ import com.example.gradeup.data.remote.APIListener
 import com.example.gradeup.data.remote.RetrofitClient
 import com.example.gradeup.data.remote.SubjectService
 import com.google.gson.Gson
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-/* Precisei apssar o contexto apra acessar o arquivo de strings
-Reponse.erroBody.string é um jason que pode ter mais do que só strings, por isso preciso modificar-lo
-
-*/
 class SubjectRepository (val context: Context) {
 
     // Recebimento dos dados de maneira assincrona
@@ -41,6 +38,7 @@ class SubjectRepository (val context: Context) {
     }
 
     private fun jsonToString(json: String): String {
-        return Gson().fromJson(json, String::class.java)
+           val jsonObject = JSONObject(json)
+        return jsonObject.getString("message")
     }
 }
