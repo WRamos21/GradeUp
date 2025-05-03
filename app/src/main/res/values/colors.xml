@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#ED770D</color>
-    <color name="colorBackground">#F1F2F4</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="primary">#ED770D</color>
+    <color name="onPrimary">#FFFFFF</color>
+
+    <color name="background">#F1F2F4</color>
+    <color name="onBackground">#000000</color>
+
+    <color name="surface">#FFFFFF</color>
+    <color name="onSurface">#000000</color>
+    <color name="onSurfaceVariant">#949494</color>
 
 </resources>

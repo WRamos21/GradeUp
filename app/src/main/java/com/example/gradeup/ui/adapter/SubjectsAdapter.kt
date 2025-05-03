@@ -25,5 +25,6 @@ class SubjectsAdapter : RecyclerView.Adapter<SubjectsViewHolder>() {
 
     fun updateSubjects(listCurrentData: List<SubjectModel>){
         subjectList = listCurrentData
+        notifyDataSetChanged()
     }
 }

@@ -4,25 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/material_dynamic_neutral_variant95">
+    android:background="@color/background"
+    tools:context=".ui.home.HomeFragment">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/registration"
+        android:textColor="@color/onBackground"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/surface"
+        app:cardCornerRadius="18dp"
+        app:contentPadding="10dp"
+        app:layout_constraintEnd_toStartOf="@id/button_filters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_search" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:background="@color/design_default_color_on_primary"
+                android:fontFamily="@font/inter_light"
+                android:hint="@string/search"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/onSurface"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_filters"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text=""
+        app:backgroundTint="@color/surface"
+        app:icon="@drawable/ic_filter"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconTint="@color/onSurface"
+        app:layout_constraintBottom_toBottomOf="@id/card_view_search"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Olá mundo"/>
+        app:layout_constraintStart_toEndOf="@id/card_view_search"
+        app:layout_constraintTop_toTopOf="@id/card_view_search"
+        app:shapeAppearanceOverlay="@style/RoundedShape" />
+
+    <TextView
+        android:id="@+id/text_offers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/classes_offered"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_subjects"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/text_offers" />
 </androidx.constraintlayout.widget.ConstraintLayout>

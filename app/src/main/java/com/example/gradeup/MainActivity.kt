@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -16,6 +17,7 @@ import com.example.gradeup.data.remote.RetrofitClient
 import com.example.gradeup.data.remote.SubjectService
 import com.example.gradeup.data.repository.SubjectRepository
 import com.example.gradeup.databinding.ActivityMainBinding
+import com.google.android.material.appbar.MaterialToolbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +31,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val toolbar = findViewById<MaterialToolbar>(R.id.topAppBar)
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar) { view, insets ->
+            val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            view.setPadding(
+                view.paddingLeft,
+                statusBarHeight,
+                view.paddingRight,
+                view.paddingBottom
+            )
+            insets
+        }
 
         supportActionBar?.hide()
 

@@ -5,4 +5,10 @@
     <string name="title_notifications">Notifications</string>
     <string name="ERROR_UNEXPECTED">Um erro inesperado ocorreu. Tente novamente mais tarde</string>
     <string name="subject_title">Titulo da matéria</string>
+    <string name="registration">Matrícula</string>
+    <string name="search">Pesquisar...</string>
+    <string name="classes_offered">Turmas ofertadas</string>
+    <string name="course">Curso</string>
+    <string name="campus">Campus</string>
+    <string name="vacancies">N vagas</string>
 </resources>
