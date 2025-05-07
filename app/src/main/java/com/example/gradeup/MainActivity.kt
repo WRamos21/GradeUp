@@ -31,18 +31,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar = findViewById<MaterialToolbar>(R.id.topAppBar)
-        ViewCompat.setOnApplyWindowInsetsListener(toolbar) { view, insets ->
-            val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            view.setPadding(
-                view.paddingLeft,
-                statusBarHeight,
-                view.paddingRight,
-                view.paddingBottom
-            )
-            insets
-        }
-
         supportActionBar?.hide()
 
         setupNavigation()
