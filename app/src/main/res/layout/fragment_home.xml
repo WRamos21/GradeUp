@@ -19,16 +19,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/surface"
         app:cardCornerRadius="18dp"
         app:contentPadding="10dp"
         app:layout_constraintEnd_toStartOf="@id/button_filters"
+        app:layout_constraintHorizontal_weight="11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title">
 
@@ -59,12 +61,11 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_filters"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:insetTop="0dp"
         android:insetBottom="0dp"
@@ -75,9 +76,12 @@
         app:iconPadding="0dp"
         app:iconTint="@color/onSurface"
         app:layout_constraintBottom_toBottomOf="@id/card_view_search"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toEndOf="@id/card_view_search"
         app:layout_constraintTop_toTopOf="@id/card_view_search"
+        app:layout_constraintVertical_bias="0.0"
         app:shapeAppearanceOverlay="@style/RoundedShape" />
 
     <TextView
@@ -85,15 +89,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter"
         android:text="@string/classes_offered"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/onBackground"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/card_view_search"
         app:layout_constraintTop_toBottomOf="@id/card_view_search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_subjects"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
