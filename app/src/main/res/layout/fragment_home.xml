@@ -30,7 +30,7 @@
         app:cardCornerRadius="18dp"
         app:contentPadding="10dp"
         app:layout_constraintEnd_toStartOf="@id/button_filters"
-        app:layout_constraintHorizontal_weight="11"
+        app:layout_constraintHorizontal_weight="10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title">
 
@@ -55,6 +55,7 @@
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:textColor="@color/onSurface"
+                android:textColorHint="@color/onSurface"
                 android:textSize="14sp" />
 
         </LinearLayout>
