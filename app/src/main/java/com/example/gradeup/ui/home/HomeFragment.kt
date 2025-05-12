@@ -1,6 +1,8 @@
 package com.example.gradeup.ui.home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,12 +35,26 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //Configuracao recyclerView
+        // Configuracao recyclerView
         binding.recyclerviewSubjects.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewSubjects.adapter = adapter
 
+        // Configuracao da editText Serach
+        binding.editSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                homeViewModel.getSubjects(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+        })
+
         // Chamando recycler
-        homeViewModel.getAllSubjects()
+        homeViewModel.getSubjects("")
         setObserver()
 
         return root
@@ -49,7 +65,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private fun setObserver(){
+    private fun setObserver() {
         homeViewModel.subjects.observe(viewLifecycleOwner) {
             adapter.updateSubjects(it)
         }
