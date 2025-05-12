@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
         binding.recyclerviewSubjects.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewSubjects.adapter = adapter
 
-        // Configuracao da editText Serach
+        // Configuracao da editText Search
         binding.editSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
