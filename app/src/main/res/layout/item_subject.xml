@@ -13,6 +13,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="8dp"
         app:cardBackgroundColor="@color/surface"
+        app:contentPadding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,8 +133,7 @@
                     android:gravity="start"
                     android:text="NOME DO PROFESSOR"
                     android:textColor="@color/onSurface"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/text_theory"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/text_theory"
                     app:layout_constraintTop_toTopOf="@id/text_theory" />
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/inter_semibold"
-                    android:text="TEORIA: "
+                    android:text="PRÁTICA: "
                     android:textColor="@color/onSurface"
                     android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="@id/icon_pratice"
@@ -187,8 +187,7 @@
                     android:gravity="start"
                     android:text="NOME DO PROFESSOR"
                     android:textColor="@color/onSurface"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/text_pratice"
+                    android:textSize="13sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/text_pratice"
                     app:layout_constraintTop_toTopOf="@id/text_pratice" />
@@ -204,8 +203,9 @@
                     android:textColor="@color/onSurface"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@id/text_pratice"
-                    app:layout_constraintTop_toBottomOf="@id/text_pratice" />
+                    app:layout_constraintTop_toBottomOf="@id/text_pratice_teacher" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
