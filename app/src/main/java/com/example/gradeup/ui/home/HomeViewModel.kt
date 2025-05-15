@@ -19,21 +19,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
-//    fun getAllSubjects(){
-//        repository.getAllSubjects(object : APIListener<List<SubjectModel>> {
-//            override fun onSucces(result: List<SubjectModel>) {
-//                _subjects.value = result
-//            }
-//
-//            override fun onFailure(messageError: String) {
-//                _errorMessage.value = messageError
-//            }
-//        })
-//
-//    }
-
-    fun getSubjects(filter: String){
-        repository.getFilteredSubjects(filters = mapOf("disciplina" to "ilike.*%$filter*"), object : APIListener<List<SubjectModel>> {
+    fun getAllSubjects(){
+        repository.getAllSubjects(object : APIListener<List<SubjectModel>> {
             override fun onSucces(result: List<SubjectModel>) {
                 _subjects.value = result
             }
@@ -42,5 +29,18 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 _errorMessage.value = messageError
             }
         })
+
     }
+
+//    fun getSubjects(filter: String){
+//        repository.getFilteredSubjects(filters = mapOf("disciplina" to "ilike.*%$filter*"), object : APIListener<List<SubjectModel>> {
+//            override fun onSucces(result: List<SubjectModel>) {
+//                _subjects.value = result
+//            }
+//
+//            override fun onFailure(messageError: String) {
+//                _errorMessage.value = messageError
+//            }
+//        })
+//    }
 }
