@@ -4,12 +4,12 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.example.gradeup"
-    compileSdk = 35
+    compileSdk = 34
 
     val file = rootProject.file("local.properties")
     val properties = Properties()
@@ -19,7 +19,7 @@ android {
     defaultConfig {
         applicationId = "com.example.gradeup"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

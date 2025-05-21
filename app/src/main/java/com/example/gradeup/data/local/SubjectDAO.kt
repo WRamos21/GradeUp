@@ -7,6 +7,6 @@ import androidx.room.Query
 interface SubjectDAO {
 
     @Query("SELECT * FROM Subject")
-    fun getAllSubject()
+    fun getAllSubject(): List<SubjectEntity>
 
 }
