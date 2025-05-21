@@ -1,6 +1,7 @@
 package com.example.gradeup.data.local
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -20,11 +21,12 @@ abstract class SubjectDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): SubjectDatabase {
             if (!::instance.isInitialized) {
+                Log.d("ROOM_DB", "getDataBase chamado")
                 synchronized(this) { // nunca vai haver acesso simultaneo
                     instance =
                         Room.databaseBuilder(context, SubjectDatabase::class.java, DATABASE_NAME)
                             .addCallback(DataBaseCallBack(context))
-                            .allowMainThreadQueries() // Permite usar a thread principal da aplicação para executar consultas
+                            // Permite usar a thread principal da aplicação para executar consultas
                             .build()
                 }
             }
@@ -35,13 +37,14 @@ abstract class SubjectDatabase : RoomDatabase() {
     private class DataBaseCallBack(val context: Context) : Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
-
+            Log.d("ROOM_DB", "DataBaseCall chamado")
             CoroutineScope(Dispatchers.IO).launch {
                 getDatabase(context).subjectDAO().create(getInitialSubjects())
             }
         }
 
         private fun getInitialSubjects(): List<SubjectEntity> {
+            Log.d("ROOM_DB", "getInitial chamado")
             return listOf(
                 SubjectEntity(
                     curso = "BACHARELADO EM BIOTECNOLOGIA",

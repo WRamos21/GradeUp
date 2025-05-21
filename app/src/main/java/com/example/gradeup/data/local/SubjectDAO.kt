@@ -13,4 +13,7 @@ interface SubjectDAO {
     @Insert
     fun create(subjects: List<SubjectEntity>)
 
+    @Query("SELECT COUNT(*) FROM Subject")
+    suspend fun getCount(): Int
+
 }

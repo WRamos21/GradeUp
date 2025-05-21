@@ -20,6 +20,7 @@ class SubjectRepository(val context: Context) {
     private val remote = RetrofitClient.createService(SubjectService::class.java)
 
     fun getAllSubjects(listener: APIListener<List<SubjectModel>>) {
+        SubjectDatabase.getDatabase(context)
         val call: Call<List<SubjectModel>> = remote.listAllSubjects()
 
         call.enqueue(object : Callback<List<SubjectModel>> {
