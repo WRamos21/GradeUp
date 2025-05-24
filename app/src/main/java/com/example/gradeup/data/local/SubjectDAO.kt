@@ -3,12 +3,13 @@ package com.example.gradeup.data.local
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SubjectDAO {
 
     @Query("SELECT * FROM Subject")
-    fun getAllSubject(): List<SubjectEntity>
+    fun getAllSubject(): Flow<List<SubjectEntity>>
 
     @Insert
     fun create(subjects: List<SubjectEntity>)

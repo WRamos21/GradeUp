@@ -6,6 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.example.gradeup.data.local.SubjectEntity
 import com.example.gradeup.data.model.SubjectModel
 import com.example.gradeup.data.remote.APIListener
 import com.example.gradeup.data.repository.SubjectRepository
@@ -15,6 +17,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _subjects = MutableLiveData<List<SubjectModel>>()
     val subjects: LiveData<List<SubjectModel>> = _subjects
+    val subjectsRemote: LiveData<List<SubjectEntity>> = repository.getAllFromLocal().asLiveData()
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage

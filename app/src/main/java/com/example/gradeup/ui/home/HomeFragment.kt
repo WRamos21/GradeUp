@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setObserver() {
-        homeViewModel.subjects.observe(viewLifecycleOwner) {
+        homeViewModel.subjectsRemote.observe(viewLifecycleOwner) {
             adapter.updateSubjects(it)
         }
         homeViewModel.errorMessage.observe(viewLifecycleOwner) {
