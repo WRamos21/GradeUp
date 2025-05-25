@@ -37,7 +37,7 @@ abstract class SubjectDatabase : RoomDatabase() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             CoroutineScope(Dispatchers.IO).launch {
-                getDatabase(context).subjectDAO().create(getInitialSubjects())
+                getDatabase(context).subjectDAO()
             }
         }
 

@@ -12,7 +12,11 @@ interface SubjectDAO {
     fun getAllSubject(): Flow<List<SubjectEntity>>
 
     @Insert
-    fun create(subjects: List<SubjectEntity>)
+    suspend fun create(subjects: List<SubjectEntity>)
+
+    // Teste simples primeiro
+    @Query("SELECT codigo FROM Subject LIMIT 1")
+    suspend fun getFirstCode(): String?
 
     @Query("SELECT COUNT(*) FROM Subject")
     suspend fun getCount(): Int
