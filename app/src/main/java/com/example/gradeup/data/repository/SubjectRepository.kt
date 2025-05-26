@@ -75,9 +75,10 @@ class SubjectRepository(val context: Context) {
         }
     }
 
-    fun getAllFromLocal(): Flow<List<SubjectEntity>> {
-        return localDataBase.getAllSubject()
+    fun getAllFromLocal(filter: String): Flow<List<SubjectEntity>> {
+        return localDataBase.getFilteredSubject(filter)
     }
+
 
     fun SubjectModel.toEntity(): SubjectEntity {
         return SubjectEntity(

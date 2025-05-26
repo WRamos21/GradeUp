@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                homeViewModel.getAllSubjects()
+                homeViewModel.getAllSubjects(s.toString())
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
         })
 
         // Chamando recycler
-        homeViewModel.getAllSubjects()
+        homeViewModel.getAllSubjects("")
         setObserver()
 
         return root

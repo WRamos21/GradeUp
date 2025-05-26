@@ -1,12 +1,14 @@
 package com.example.gradeup.ui.home
 
 import android.app.Application
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import com.example.gradeup.data.local.SubjectEntity
 import com.example.gradeup.data.model.SubjectModel
@@ -15,41 +17,22 @@ import com.example.gradeup.data.repository.SubjectRepository
 import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
+
     private val repository: SubjectRepository = SubjectRepository(application.applicationContext)
+    private val _filter = MutableLiveData<String>()
 
-    private val _subjects = MutableLiveData<List<SubjectModel>>()
-    val subjectsRemote: LiveData<List<SubjectEntity>> = repository.getAllFromLocal().asLiveData()
-
+    var subjectsRemote: LiveData<List<SubjectEntity>> =
+        _filter.switchMap { filter ->
+            repository.getAllFromLocal(filter).asLiveData()
+        }
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
-    fun getAllSubjects(){
+    fun getAllSubjects(filter: String) {
         viewModelScope.launch {
             repository.updateLocalDataBase()
+            _filter.value = filter
         }
-
-//        repository.getAllSubjects(object : APIListener<List<SubjectModel>> {
-//            override fun onSucces(result: List<SubjectModel>) {
-//                _subjects.value = result
-//            }
-//
-//            override fun onFailure(messageError: String) {
-//                _errorMessage.value = messageError
-//            }
-//        })
-
     }
-
-//    fun getSubjects(filter: String){
-//        repository.getFilteredSubjects(filters = mapOf("disciplina" to "ilike.*%$filter*"), object : APIListener<List<SubjectModel>> {
-//            override fun onSucces(result: List<SubjectModel>) {
-//                _subjects.value = result
-//            }
-//
-//            override fun onFailure(messageError: String) {
-//                _errorMessage.value = messageError
-//            }
-//        })
-//    }
 }

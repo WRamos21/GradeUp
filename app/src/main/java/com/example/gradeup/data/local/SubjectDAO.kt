@@ -11,12 +11,11 @@ interface SubjectDAO {
     @Query("SELECT * FROM Subject")
     fun getAllSubject(): Flow<List<SubjectEntity>>
 
+    @Query("SELECT * FROM Subject WHERE LOWER(disciplina) LIKE LOWER('%' || :filter || '%')")
+    fun getFilteredSubject(filter: String): Flow<List<SubjectEntity>>
+
     @Insert
     suspend fun create(subjects: List<SubjectEntity>)
-
-    // Teste simples primeiro
-    @Query("SELECT codigo FROM Subject LIMIT 1")
-    suspend fun getFirstCode(): String?
 
     @Query("SELECT COUNT(*) FROM Subject")
     suspend fun getCount(): Int

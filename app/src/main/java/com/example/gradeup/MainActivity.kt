@@ -53,31 +53,4 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
-//    private fun testarBancoRoom() {
-//        // Apenas pegar a instância NÃO cria o banco físico
-//        val database = SubjectDatabase.getDatabase(this)
-//        Log.d("ROOM_DB", "Instância do banco obtida")
-//
-//        // O banco só é REALMENTE criado quando fazemos a primeira consulta
-//        CoroutineScope(Dispatchers.IO).launch {
-//            try {
-//                Log.d("ROOM_DB", "Fazendo primeira consulta para forçar criação...")
-//
-//                // ESTA linha vai disparar o onCreate do Callback
-//                val subjects = database.subjectDAO().getAllSubject()
-//
-//                withContext(Dispatchers.Main) {
-//                    Log.d("ROOM_DB", "Consulta executada! Total: ${subjects.size}")
-//                    subjects.forEach { subject ->
-//                        Log.d("ROOM_DB", "Disciplina: ${subject.disciplina}")
-//                    }
-//                }
-//
-//            } catch (e: Exception) {
-//                Log.e("ROOM_DB", "Erro ao consultar banco: ${e.message}")
-//                e.printStackTrace()
-//            }
-//        }
-//    }
 }
