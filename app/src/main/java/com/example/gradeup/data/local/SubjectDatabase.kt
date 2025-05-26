@@ -21,11 +21,10 @@ abstract class SubjectDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): SubjectDatabase {
             if (!::instance.isInitialized) {
-                synchronized(this) { // nunca vai haver acesso simultaneo
+                synchronized(this) {
                     instance =
                         Room.databaseBuilder(context, SubjectDatabase::class.java, DATABASE_NAME)
                             .addCallback(DataBaseCallBack(context))
-                            // Permite usar a thread principal da aplicação para executar consultas
                             .build()
                 }
             }
@@ -40,29 +39,5 @@ abstract class SubjectDatabase : RoomDatabase() {
                 getDatabase(context).subjectDAO()
             }
         }
-
-        private fun getInitialSubjects(): List<SubjectEntity> {
-            return listOf(
-                SubjectEntity(
-                    curso = "BACHARELADO EM BIOTECNOLOGIA",
-                    codigo = "NA1NHZ6001-18SA",
-                    disciplina = "FUNDAMENTOS DA BIOTECNOLOGIA",
-                    turmaCodigo = "A1",
-                    teoria = "terça das 21:00 às 23:00, semanal ",
-                    pratica = "",
-                    campus = "SA",
-                    turno = "Noturno",
-                    tpi = "2-0-2",
-                    vagasTotais = 45,
-                    vagasIngressantes = 0,
-                    vagasVeteranos = 45,
-                    docenteTeoria = "Danilo Trabuco Do Amaral",
-                    docentePratica = "0",
-                )
-            )
-
-        }
-
     }
-
 }

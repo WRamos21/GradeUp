@@ -1,18 +1,13 @@
 package com.example.gradeup.ui.home
 
 import android.app.Application
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import com.example.gradeup.data.local.SubjectEntity
-import com.example.gradeup.data.model.SubjectModel
-import com.example.gradeup.data.remote.APIListener
 import com.example.gradeup.data.repository.SubjectRepository
 import kotlinx.coroutines.launch
 

@@ -10,10 +10,8 @@ import com.example.gradeup.data.model.SubjectModel
 import com.example.gradeup.data.remote.APIListener
 import com.example.gradeup.data.remote.RetrofitClient
 import com.example.gradeup.data.remote.SubjectService
-import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -78,7 +76,6 @@ class SubjectRepository(val context: Context) {
     fun getAllFromLocal(filter: String): Flow<List<SubjectEntity>> {
         return localDataBase.getFilteredSubject(filter)
     }
-
 
     fun SubjectModel.toEntity(): SubjectEntity {
         return SubjectEntity(

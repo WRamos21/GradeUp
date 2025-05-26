@@ -6,17 +6,12 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.gradeup.data.repository.SubjectRepository
 import com.example.gradeup.databinding.FragmentHomeBinding
 import com.example.gradeup.ui.adapter.SubjectsAdapter
-import com.example.gradeup.ui.dashboard.DashboardViewModel
 
 class HomeFragment : Fragment() {
 

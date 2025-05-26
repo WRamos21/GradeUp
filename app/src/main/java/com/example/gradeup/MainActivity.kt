@@ -1,32 +1,13 @@
 package com.example.gradeup
 
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.gradeup.data.local.SubjectDatabase
-import com.example.gradeup.data.model.SubjectModel
-import com.example.gradeup.data.remote.RetrofitClient
-import com.example.gradeup.data.remote.SubjectService
-import com.example.gradeup.data.repository.SubjectRepository
 import com.example.gradeup.databinding.ActivityMainBinding
-import com.google.android.material.appbar.MaterialToolbar
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
