@@ -11,6 +11,11 @@
     <color name="onSurface">#000000</color>
     <color name="onSurfaceVariant">#949494</color>
 
+    <color name="backgroundFilter">#FFFFFF</color>
+    <color name="onBackgroundFilter">#797A7A</color>
+    <color name="SurfaceFilter">#F1F2F4</color>
+    <color name="onSurfaceFilter">#939396</color>
+
 
 
 </resources>
