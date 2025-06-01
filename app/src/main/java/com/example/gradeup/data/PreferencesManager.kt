@@ -22,37 +22,18 @@ class PreferencesManager(private val context: Context) {
         private val SELECTED_CHIPS_KEY = stringSetPreferencesKey("selected_chips")
     }
 
-    suspend fun preferencesSave(key: String, value: Boolean){ //Suspend por o edit é função suspensa
-        val preferencesKey = booleanPreferencesKey(key) //salvar de forma para dataStore possa ler
-        context.dataStore.edit { pref -> pref[preferencesKey] = value }
-    }
-
-    suspend fun preferencesRead(key: String): Boolean{
-        val preferencesKey = booleanPreferencesKey(key)
-        val data = context.dataStore.data.first() //first é a maneira da acessar o data store
-        return data[preferencesKey] ?: false
-    }
-
-    suspend fun preferencesRemove(key: String, value: Boolean){
-        val preferencesKey = booleanPreferencesKey(key)
-        context.dataStore.edit { pref -> pref.remove(preferencesKey) }
-    }
-
-
     suspend fun saveSelectedChips(selectedChips: Set<String>) {
         context.dataStore.edit { preferences ->
             preferences[SELECTED_CHIPS_KEY] = selectedChips
         }
     }
 
-    // Recuperar chips selecionados
     fun getSelectedChips(): Flow<Set<String>> {
         return context.dataStore.data.map { preferences ->
             preferences[SELECTED_CHIPS_KEY] ?: emptySet()
         }
     }
 
-    // Limpar filtros (opcional)
     suspend fun clearFilters() {
         context.dataStore.edit { preferences ->
             preferences.remove(SELECTED_CHIPS_KEY)

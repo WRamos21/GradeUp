@@ -7,17 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.gradeup.databinding.FragmentFilterBinding
-import com.google.android.material.chip.Chip
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class FilterFragment : Fragment() {
@@ -25,9 +17,12 @@ class FilterFragment : Fragment() {
     private var _binding: FragmentFilterBinding? = null
     private val binding get() = _binding!!
     private val filterViewModel: FilterViewModel by activityViewModels()
-    private var listChipsCheked = mutableListOf("")
+
+    private var listChipsCheked = mutableListOf<Int>()
     private val chipsMap by lazy {
         mapOf(
+            binding.chipFilterSa.id to binding.chipFilterSa,
+            binding.chipFilterSbc.id to binding.chipFilterSbc,
             binding.chipFilterDaytime.id to binding.chipFilterDaytime,
             binding.chipFilterNightly.id to binding.chipFilterNightly
         )
@@ -46,75 +41,53 @@ class FilterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val listIds = listOf(binding.chipFilterDaytime.id)
+        activateChipsById(listChipsCheked)
+        observeSelectedChips()
+        setOnClikListenerAllChips()
 
-        ativarChipsPorId(listIds)
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            filterViewModel.selectedChips.collect { chips ->
-                Log.d("testePrintFragmentButton", "Chips observados: $chips")
-                listChipsCheked = chips.toMutableList()
-                if (chips.contains("SBC")) {
-                    binding.chipFilterSbc.isChecked = true
-                }
-                if (chips.contains("SA")) {
-                    binding.chipFilterSa.isChecked = true
-                }
-            }
-
-        }
 
         binding.iconCheck.setOnClickListener {
-
-            if (binding.chipFilterSbc.isChecked) {
-                Log.e("teste.Cheked.SBC", "Lista antiga: $listChipsCheked")
-                val newList = mutableListOf("SBC")
-                viewLifecycleOwner.lifecycleScope.launch {
-                    Log.e("teste", "Lista nova na fragment: $newList")
-                    filterViewModel.saveChip(listChipsCheked)
-                    findNavController().popBackStack()
-                }
-            } else {
-                Log.e("teste.Cheked.SBC", "Lista antiga: $listChipsCheked")
-                val newList = mutableListOf("SA")
-                viewLifecycleOwner.lifecycleScope.launch {
-                    Log.e("teste", "Lista nova na fragment: $newList")
-                    filterViewModel.saveChip(listChipsCheked)
-                    findNavController().popBackStack()
-                }
-            }
+            filterViewModel.saveSelectedChips(listChipsCheked)
+            findNavController().popBackStack()
         }
 
-        binding.chipFilterSa.setOnClickListener {
-            if (binding.chipFilterSa.isChecked) {
-                listChipsCheked.add("SA")
-            } else if (listChipsCheked.contains("SA")) {
-                listChipsCheked.remove("SA")
-            }
-            Log.e("testeListener", "Lista nova na fragment: $listChipsCheked")
-        }
+        binding.iconBack.setOnClickListener {
+            findNavController().popBackStack()
 
-        binding.chipFilterSbc.setOnClickListener {
-            if (binding.chipFilterSbc.isChecked) {
-                listChipsCheked.add("SBC")
-            } else if (listChipsCheked.contains("SBC")) {
-                listChipsCheked.remove("SBC")
-            }
-            Log.e("testeListener", "Lista nova na fragment: $listChipsCheked")
         }
-
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    private fun ativarChipsPorId(idsParaAtivar: List<Int>) {
+    private fun activateChipsById(idsToActivte: List<Int>) {
         chipsMap.values.forEach { it.isChecked = false }
-        idsParaAtivar.forEach { id ->
+        idsToActivte.forEach { id ->
             chipsMap[id]?.isChecked = true
         }
     }
+
+    private fun observeSelectedChips(){
+        viewLifecycleOwner.lifecycleScope.launch {
+            filterViewModel.selectedChips.collect { chips ->
+                listChipsCheked = chips.toMutableList()
+                activateChipsById(listChipsCheked)
+            }
+        }
+    }
+
+    private fun setOnClikListenerAllChips() {
+        chipsMap.values.forEach { chip ->
+            chip.setOnClickListener {
+                if (chip.isChecked) {
+                    listChipsCheked.add(chip.id)
+                } else if (listChipsCheked.contains(chip.id)) {
+                    listChipsCheked.remove(chip.id)
+                }
+            }
+        }
+    }
+
 }
