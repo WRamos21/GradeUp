@@ -67,6 +67,7 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter" />
 
             <com.google.android.material.chip.Chip
+                android:tag="SA"
                 android:id="@+id/chip_filter_sa"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -84,6 +85,7 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter_campus" />
 
             <com.google.android.material.chip.Chip
+                android:tag="SB"
                 android:id="@+id/chip_filter_sbc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -113,6 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@id/chip_filter_sa" />
 
             <com.google.android.material.chip.Chip
+                android:tag="Matutino"
                 android:id="@+id/chip_filter_daytime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -130,6 +133,7 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter_schedules" />
 
             <com.google.android.material.chip.Chip
+                android:tag="Noturno"
                 android:id="@+id/chip_filter_nightly"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

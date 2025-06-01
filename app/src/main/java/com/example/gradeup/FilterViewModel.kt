@@ -11,24 +11,25 @@ import kotlinx.coroutines.launch
 
 class FilterViewModel(application: Application) : AndroidViewModel(application) {
     private val prefManager = PreferencesManager(application)
-    private var _selectedChips = MutableStateFlow<Set<Int>>(emptySet())
-    val selectedChips: StateFlow<Set<Int>> get() = _selectedChips
+    private var _selectedChips = MutableStateFlow<Set<String>>(emptySet())
+    val selectedChips: StateFlow<Set<String>> get() = _selectedChips
 
     init {
         getChips()
     }
 
-    fun saveSelectedChips(list: List<Int>) {
+    fun saveSelectedChips(list: List<String>) {
         viewModelScope.launch {
             _selectedChips = MutableStateFlow(list.toSet())
-            prefManager.saveSelectedChips(_selectedChips.value.map { it.toString() }.toSet())
+            prefManager.saveSelectedChips(_selectedChips.value)
         }
     }
 
     private fun getChips() {
         viewModelScope.launch {
             prefManager.getSelectedChips().collect { chips ->
-                _selectedChips.value = chips.mapNotNull { it.toIntOrNull() }.toSet()
+                _selectedChips.value = chips
+                Log.e("TesteViewModel" ,"Tags: ${selectedChips.value}")
             }
         }
     }

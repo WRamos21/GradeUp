@@ -18,13 +18,13 @@ class FilterFragment : Fragment() {
     private val binding get() = _binding!!
     private val filterViewModel: FilterViewModel by activityViewModels()
 
-    private var listChipsCheked = mutableListOf<Int>()
+    private var listChipsCheked = mutableListOf<String>()
     private val chipsMap by lazy {
         mapOf(
-            binding.chipFilterSa.id to binding.chipFilterSa,
-            binding.chipFilterSbc.id to binding.chipFilterSbc,
-            binding.chipFilterDaytime.id to binding.chipFilterDaytime,
-            binding.chipFilterNightly.id to binding.chipFilterNightly
+            binding.chipFilterSa.tag to binding.chipFilterSa,
+            binding.chipFilterSbc.tag to binding.chipFilterSbc,
+            binding.chipFilterDaytime.tag to binding.chipFilterDaytime,
+            binding.chipFilterNightly.tag to binding.chipFilterNightly
         )
     }
 
@@ -62,7 +62,7 @@ class FilterFragment : Fragment() {
         _binding = null
     }
 
-    private fun activateChipsById(idsToActivte: List<Int>) {
+    private fun activateChipsById(idsToActivte: List<String>) {
         chipsMap.values.forEach { it.isChecked = false }
         idsToActivte.forEach { id ->
             chipsMap[id]?.isChecked = true
@@ -82,9 +82,9 @@ class FilterFragment : Fragment() {
         chipsMap.values.forEach { chip ->
             chip.setOnClickListener {
                 if (chip.isChecked) {
-                    listChipsCheked.add(chip.id)
-                } else if (listChipsCheked.contains(chip.id)) {
-                    listChipsCheked.remove(chip.id)
+                    listChipsCheked.add(chip.tag.toString())
+                } else if (listChipsCheked.contains(chip.tag.toString())) {
+                    listChipsCheked.remove(chip.tag.toString())
                 }
             }
         }
