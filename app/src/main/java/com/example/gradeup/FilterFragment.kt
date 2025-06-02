@@ -24,10 +24,28 @@ class FilterFragment : Fragment() {
             binding.chipFilterSa.tag to binding.chipFilterSa,
             binding.chipFilterSbc.tag to binding.chipFilterSbc,
             binding.chipFilterDaytime.tag to binding.chipFilterDaytime,
-            binding.chipFilterNightly.tag to binding.chipFilterNightly
-        )
-    }
+            binding.chipFilterNightly.tag to binding.chipFilterNightly,
 
+            binding.checkboxBachareladoBiotecnologia.tag to binding.checkboxBachareladoBiotecnologia,
+            binding.checkboxBachareladoCienciaComputacao.tag to binding.checkboxBachareladoCienciaComputacao,
+            binding.checkboxBachareladoCienciaDados.tag to binding.checkboxBachareladoCienciaDados,
+            binding.checkboxBachareladoCienciasBiologicas.tag to binding.checkboxBachareladoCienciasBiologicas,
+            binding.checkboxBachareladoEngenhariaAeroespacial.tag to binding.checkboxBachareladoEngenhariaAeroespacial,
+            binding.checkboxBachareladoEngenhariaAmbientalUrbana.tag to binding.checkboxBachareladoEngenhariaAmbientalUrbana,
+            binding.checkboxBachareladoEngenhariaBiomedica.tag to binding.checkboxBachareladoEngenhariaBiomedica,
+            binding.checkboxBachareladoEngenhariaInformacao.tag to binding.checkboxBachareladoEngenhariaInformacao,
+            binding.checkboxBachareladoEngenhariaEnergia.tag to binding.checkboxBachareladoEngenhariaEnergia,
+            binding.checkboxBachareladoEngenhariaGestao.tag to binding.checkboxBachareladoEngenhariaGestao,
+            binding.checkboxBachareladoEngenhariaAutomacaoRobotica.tag to binding.checkboxBachareladoEngenhariaAutomacaoRobotica,
+            binding.checkboxBachareladoEngenhariaMateriais.tag to binding.checkboxBachareladoEngenhariaMateriais,
+            binding.checkboxBachareladoFisica.tag to binding.checkboxBachareladoFisica,
+            binding.checkboxBachareladoMatematica.tag to binding.checkboxBachareladoMatematica,
+            binding.checkboxBachareladoNeurociencia.tag to binding.checkboxBachareladoNeurociencia,
+            binding.checkboxBachareladoQuimica.tag to binding.checkboxBachareladoQuimica,
+
+
+            )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,7 +87,7 @@ class FilterFragment : Fragment() {
         }
     }
 
-    private fun observeSelectedChips(){
+    private fun observeSelectedChips() {
         viewLifecycleOwner.lifecycleScope.launch {
             filterViewModel.selectedChips.collect { chips ->
                 listChipsCheked = chips.toMutableList()

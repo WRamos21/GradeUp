@@ -11,6 +11,58 @@
     <string name="course">Curso</string>
     <string name="campus">Campus</string>
     <string name="vacancies">N vagas</string>
+
+    <string name="bacharelado_biotecnologia">Bacharelado em Biotecnologia</string>
+    <string name="tag_bacharelado_biotecnologia">BACHARELADO EM BIOTECNOLOGIA</string>
+
+    <string name="bacharelado_ciencia_computacao">Bacharelado em Ciência da Computação</string>
+    <string name="tag_bacharelado_ciencia_computacao">BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO</string>
+
+    <string name="bacharelado_ciencia_dados">Bacharelado em Ciência de Dados</string>
+    <string name="tag_bacharelado_ciencia_dados">BACHARELADO EM CIÊNCIA DE DADOS</string>
+
+    <string name="bacharelado_ciencias_biologicas">Bacharelado em Ciências Biológicas</string>
+    <string name="tag_bacharelado_ciencias_biologicas">BACHARELADO EM CIÊNCIAS BIOLÓGICAS</string>
+
+    <string name="bacharelado_engenharia_aeroespacial">Bacharelado em Engenharia Aeroespacial</string>
+    <string name="tag_bacharelado_engenharia_aeroespacial">BACHARELADO EM ENGENHARIA AEROESPACIAL</string>
+
+    <string name="bacharelado_engenharia_ambiental_urbana">Bacharelado em Engenharia Ambiental e Urbana</string>
+    <string name="tag_bacharelado_engenharia_ambiental_urbana">BACHARELADO EM ENGENHARIA AMBIENTAL E URBANA</string>
+
+    <string name="bacharelado_engenharia_biomedica">Bacharelado em Engenharia Biomédica</string>
+    <string name="tag_bacharelado_engenharia_biomedica">BACHARELADO EM ENGENHARIA BIOMÉDICA</string>
+
+    <string name="bacharelado_engenharia_informacao">Bacharelado em Engenharia da Informação</string>
+    <string name="tag_bacharelado_engenharia_informacao">BACHARELADO EM ENGENHARIA DA INFORMAÇÃO</string>
+
+    <string name="bacharelado_engenharia_energia">Bacharelado em Engenharia de Energia</string>
+    <string name="tag_bacharelado_engenharia_energia">BACHARELADO EM ENGENHARIA DE ENERGIA</string>
+
+    <string name="bacharelado_engenharia_gestao">Bacharelado em Engenharia de Gestão</string>
+    <string name="tag_bacharelado_engenharia_gestao">BACHARELADO EM ENGENHARIA DE GESTÃO</string>
+
+    <string name="bacharelado_engenharia_automacao_robotica">Bacharelado em Engenharia de Instrumentação, Automação e Robótica</string>
+    <string name="tag_bacharelado_engenharia_automacao_robotica">BACHARELADO EM ENGENHARIA DE INSTRUMENTAÇÃO, AUTOMAÇÃO E ROBÓTICA</string>
+
+    <string name="bacharelado_engenharia_materiais">Bacharelado em Engenharia de Materiais</string>
+    <string name="tag_bacharelado_engenharia_materiais">BACHARELADO EM ENGENHARIA DE MATERIAIS</string>
+
+    <string name="bacharelado_fisica">Bacharelado em Física</string>
+    <string name="tag_bacharelado_fisica">BACHARELADO EM FÍSICA</string>
+
+    <string name="bacharelado_matematica">Bacharelado em Matemática</string>
+    <string name="tag_bacharelado_matematica">BACHARELADO EM MATEMÁTICA</string>
+
+    <string name="bacharelado_neurociencia">Bacharelado em Neurociência</string>
+    <string name="tag_bacharelado_neurociencia">BACHARELADO EM NEUROCIÊNCIA</string>
+
+    <string name="bacharelado_quimica">Bacharelado em Química</string>
+    <string name="tag_bacharelado_quimica">BACHARELADO EM QUÍMICA</string>
+
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
