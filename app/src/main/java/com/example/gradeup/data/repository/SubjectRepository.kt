@@ -22,6 +22,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SubjectRepository(val context: Context) {
+
     private val filter = FilterModel()
 
     private val prefManager = PreferencesManager(context)
@@ -29,7 +30,7 @@ class SubjectRepository(val context: Context) {
     private val remote = RetrofitClient.createService(SubjectService::class.java)
     private var localDataBase = SubjectDatabase.getDatabase(context).subjectDAO()
 
-    fun getAllSubjects(listener: APIListener<List<SubjectModel>>) {
+    private fun getAllSubjects(listener: APIListener<List<SubjectModel>>) {
         localDataBase = SubjectDatabase.getDatabase(context).subjectDAO()
         val call: Call<List<SubjectModel>> = remote.listAllSubjects()
 
@@ -82,30 +83,22 @@ class SubjectRepository(val context: Context) {
         return localDataBase.getFilteredSubject(string, filter.campu, filter.turno)
     }
 
-    fun createFilter(){
+    fun createFilter() {
         CoroutineScope(Dispatchers.IO).launch {
             prefManager.getSelectedChips().collect { chips ->
-                Log.e("TesteRepository", "Tags: ${chips}")
-                if ((chips.contains("SA") && chips.contains("SB")) || (!chips.contains("SA") && !chips.contains("SB"))){
-                    filter.campu = listOf("ALL")
-                    Log.e("TesteRepository", "FilterCampus: ${filter.campu}")
-                } else if (chips.contains("SA")){
-                    filter.campu = listOf("SA")
-                    Log.e("TesteRepository", "FilterCampus: ${filter.campu}")
-                } else if (chips.contains("SB")){
-                    filter.campu = listOf("SB")
-                    Log.e("TesteRepository", "FilterCampus: ${filter.campu}")
-                    }
+                val campusChips = listOf(constants.University.CAMPUS_SA, constants.University.CAMPUS_SB)
+                val selectedCampus = chips.filter { it in campusChips } // Reduz o chip [SA, SB, Noturno, Matutino ....] para apenas SA ou SB
+                val shiftChips = listOf(constants.University.SHIFT_MORNING, constants.University.SHIFT_NIGHT)
+                val selectedShifts = chips.filter { it in shiftChips }
 
-                if ((chips.contains("Matutino") && chips.contains("Noturno")) || (!chips.contains("Matutino") && !chips.contains("Noturno"))){
-                    filter.turno = listOf("ALL")
-                    Log.e("TesteRepository", "FilterTurno: ${filter.turno}")
-                } else if (chips.contains("Matutino")){
-                    filter.turno = listOf("Matutino")
-                    Log.e("TesteRepository", "FilterTurno: ${filter.turno}")
-                } else if (chips.contains("Noturno")){
-                    filter.turno = listOf("Noturno")
-                    Log.e("TesteRepository", "FilterTurno: ${filter.turno}")
+                filter.campu = when (selectedCampus.size) {
+                    0, 2 -> listOf("ALL")  // Quando SA e SB ou nenhum dos dois, filter campus = ALL
+                    else -> selectedCampus
+                }
+
+                filter.turno = when (selectedShifts.size) {
+                    0, 2 -> listOf("ALL")  // nenhum ou ambos selecionados
+                    else -> selectedShifts
                 }
             }
         }
