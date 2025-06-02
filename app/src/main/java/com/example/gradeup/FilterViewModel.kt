@@ -29,7 +29,6 @@ class FilterViewModel(application: Application) : AndroidViewModel(application) 
         viewModelScope.launch {
             prefManager.getSelectedChips().collect { chips ->
                 _selectedChips.value = chips
-                Log.e("TesteViewModel" ,"Tags: ${selectedChips.value}")
             }
         }
     }

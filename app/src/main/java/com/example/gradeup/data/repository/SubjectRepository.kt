@@ -3,7 +3,9 @@ package com.example.gradeup.data.repository
 import android.content.Context
 import android.util.Log
 import com.example.gradeup.R
+import com.example.gradeup.data.PreferencesManager
 import com.example.gradeup.data.constants.constants
+import com.example.gradeup.data.local.FilterModel
 import com.example.gradeup.data.local.SubjectDatabase
 import com.example.gradeup.data.local.SubjectEntity
 import com.example.gradeup.data.model.SubjectModel
@@ -20,8 +22,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SubjectRepository(val context: Context) {
+    private val filter = FilterModel()
 
-    // Recebimento dos dados de maneira assincrona
+    private val prefManager = PreferencesManager(context)
+
     private val remote = RetrofitClient.createService(SubjectService::class.java)
     private var localDataBase = SubjectDatabase.getDatabase(context).subjectDAO()
 
@@ -73,8 +77,38 @@ class SubjectRepository(val context: Context) {
         }
     }
 
-    fun getAllFromLocal(filter: String): Flow<List<SubjectEntity>> {
-        return localDataBase.getFilteredSubject(filter)
+    fun getAllFromLocal(string: String): Flow<List<SubjectEntity>> {
+        createFilter()
+        return localDataBase.getFilteredSubject(string, filter.campu, filter.turno)
+    }
+
+    fun createFilter(){
+        CoroutineScope(Dispatchers.IO).launch {
+            prefManager.getSelectedChips().collect { chips ->
+                Log.e("TesteRepository", "Tags: ${chips}")
+                if ((chips.contains("SA") && chips.contains("SB")) || (!chips.contains("SA") && !chips.contains("SB"))){
+                    filter.campu = listOf("ALL")
+                    Log.e("TesteRepository", "FilterCampus: ${filter.campu}")
+                } else if (chips.contains("SA")){
+                    filter.campu = listOf("SA")
+                    Log.e("TesteRepository", "FilterCampus: ${filter.campu}")
+                } else if (chips.contains("SB")){
+                    filter.campu = listOf("SB")
+                    Log.e("TesteRepository", "FilterCampus: ${filter.campu}")
+                    }
+
+                if ((chips.contains("Matutino") && chips.contains("Noturno")) || (!chips.contains("Matutino") && !chips.contains("Noturno"))){
+                    filter.turno = listOf("ALL")
+                    Log.e("TesteRepository", "FilterTurno: ${filter.turno}")
+                } else if (chips.contains("Matutino")){
+                    filter.turno = listOf("Matutino")
+                    Log.e("TesteRepository", "FilterTurno: ${filter.turno}")
+                } else if (chips.contains("Noturno")){
+                    filter.turno = listOf("Noturno")
+                    Log.e("TesteRepository", "FilterTurno: ${filter.turno}")
+                }
+            }
+        }
     }
 
     fun SubjectModel.toEntity(): SubjectEntity {
@@ -95,5 +129,6 @@ class SubjectRepository(val context: Context) {
             docentePratica = this.docentePratica
         )
     }
+
 
 }

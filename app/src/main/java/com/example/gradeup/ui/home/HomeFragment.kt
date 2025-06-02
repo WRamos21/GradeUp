@@ -3,6 +3,7 @@ package com.example.gradeup.ui.home
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.gradeup.FilterFragment
 import com.example.gradeup.R
 import com.example.gradeup.databinding.FragmentHomeBinding
 import com.example.gradeup.ui.adapter.SubjectsAdapter
+import kotlinx.coroutines.delay
 
 class HomeFragment : Fragment() {
 
@@ -46,11 +48,22 @@ class HomeFragment : Fragment() {
         setEditSearchListener()
 
         // Chamando recycler
-        homeViewModel.getAllSubjects("")
         setObserver()
 
         binding.buttonFilters.setOnClickListener {
             openFilterFragment()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val s = binding.editSearch.text.toString()
+        if (s.isNotBlank()){
+            homeViewModel.getAllSubjects(binding.editSearch.text.toString())
+            Log.d("testeHomeIsNotemprety", s)
+        } else {
+            homeViewModel.getAllSubjects("")
+            Log.d("testeHome", "")
         }
     }
 
@@ -74,7 +87,14 @@ class HomeFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                homeViewModel.getAllSubjects(s.toString())
+                if (s.toString().isNotBlank()){
+                    homeViewModel.getAllSubjects(binding.editSearch.text.toString())
+                    Log.d("testeHomeIsNotemprety", s.toString())
+                    homeViewModel.getAllSubjects(s.toString())
+                } else {
+                    Log.d("testeHome", "")
+                    homeViewModel.getAllSubjects("")
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
