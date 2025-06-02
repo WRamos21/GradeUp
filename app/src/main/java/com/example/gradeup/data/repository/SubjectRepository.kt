@@ -80,7 +80,7 @@ class SubjectRepository(val context: Context) {
 
     fun getAllFromLocal(string: String): Flow<List<SubjectEntity>> {
         createFilter()
-        return localDataBase.getFilteredSubject(string, filter.campu, filter.turno)
+        return localDataBase.getFilteredSubject(string, filter.campu, filter.turno, filter.cursos)
     }
 
     fun createFilter() {
@@ -90,6 +90,7 @@ class SubjectRepository(val context: Context) {
                 val selectedCampus = chips.filter { it in campusChips } // Reduz o chip [SA, SB, Noturno, Matutino ....] para apenas SA ou SB
                 val shiftChips = listOf(constants.University.SHIFT_MORNING, constants.University.SHIFT_NIGHT)
                 val selectedShifts = chips.filter { it in shiftChips }
+                val selectedCourses = chips.filter { it in (constants.University.LIST_COURSES) }
 
                 filter.campu = when (selectedCampus.size) {
                     0, 2 -> listOf("ALL")  // Quando SA e SB ou nenhum dos dois, filter campus = ALL
@@ -99,6 +100,11 @@ class SubjectRepository(val context: Context) {
                 filter.turno = when (selectedShifts.size) {
                     0, 2 -> listOf("ALL")  // nenhum ou ambos selecionados
                     else -> selectedShifts
+                }
+
+                filter.cursos = when (selectedCourses.size) {
+                    0, 16 -> listOf("ALL")
+                    else -> selectedCourses
                 }
             }
         }
