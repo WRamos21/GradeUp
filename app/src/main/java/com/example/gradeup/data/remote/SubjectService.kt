@@ -14,11 +14,4 @@ interface SubjectService {
     @Headers("apikey: ${BuildConfig.SUPABASE_KEY_ANON}")
     @GET("turmas")
     fun listAllSubjects(): Call<List<SubjectModel>>
-
-//    @Headers("apikey: ${BuildConfig.SUPABASE_KEY_ANON}")
-//    @GET("turmas")
-//    fun listSubjectsWithFilter(
-//        @QueryMap filters: Map<String, String>
-//    ): Call<List<SubjectModel>>
-
 }

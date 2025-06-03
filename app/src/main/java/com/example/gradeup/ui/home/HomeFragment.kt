@@ -60,10 +60,8 @@ class HomeFragment : Fragment() {
         val s = binding.editSearch.text.toString()
         if (s.isNotBlank()){
             homeViewModel.getAllSubjects(binding.editSearch.text.toString())
-            Log.d("testeHomeIsNotemprety", s)
         } else {
             homeViewModel.getAllSubjects("")
-            Log.d("testeHome", "")
         }
     }
 
@@ -88,11 +86,8 @@ class HomeFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().isNotBlank()){
-                    homeViewModel.getAllSubjects(binding.editSearch.text.toString())
-                    Log.d("testeHomeIsNotemprety", s.toString())
                     homeViewModel.getAllSubjects(s.toString())
                 } else {
-                    Log.d("testeHome", "")
                     homeViewModel.getAllSubjects("")
                 }
             }

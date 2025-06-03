@@ -22,11 +22,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SubjectRepository(val context: Context) {
-
     private val filter = FilterModel()
-
     private val prefManager = PreferencesManager(context)
-
     private val remote = RetrofitClient.createService(SubjectService::class.java)
     private var localDataBase = SubjectDatabase.getDatabase(context).subjectDAO()
 
@@ -80,10 +77,10 @@ class SubjectRepository(val context: Context) {
 
     fun getAllFromLocal(string: String): Flow<List<SubjectEntity>> {
         createFilter()
-        return localDataBase.getFilteredSubject(string, filter.campu, filter.turno, filter.cursos)
+        return localDataBase.getFilteredSubject(string, filter.campus, filter.shifts, filter.courses)
     }
 
-    fun createFilter() {
+    private fun createFilter() {
         CoroutineScope(Dispatchers.IO).launch {
             prefManager.getSelectedChips().collect { chips ->
                 val campusChips = listOf(constants.University.CAMPUS_SA, constants.University.CAMPUS_SB)
@@ -92,17 +89,17 @@ class SubjectRepository(val context: Context) {
                 val selectedShifts = chips.filter { it in shiftChips }
                 val selectedCourses = chips.filter { it in (constants.University.LIST_COURSES) }
 
-                filter.campu = when (selectedCampus.size) {
+                filter.campus = when (selectedCampus.size) {
                     0, 2 -> listOf("ALL")  // Quando SA e SB ou nenhum dos dois, filter campus = ALL
                     else -> selectedCampus
                 }
 
-                filter.turno = when (selectedShifts.size) {
+                filter.shifts = when (selectedShifts.size) {
                     0, 2 -> listOf("ALL")  // nenhum ou ambos selecionados
                     else -> selectedShifts
                 }
 
-                filter.cursos = when (selectedCourses.size) {
+                filter.courses = when (selectedCourses.size) {
                     0, 16 -> listOf("ALL")
                     else -> selectedCourses
                 }
