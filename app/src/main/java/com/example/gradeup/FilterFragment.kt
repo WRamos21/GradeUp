@@ -26,6 +26,7 @@ class FilterFragment : Fragment() {
             binding.chipFilterDaytime.tag to binding.chipFilterDaytime,
             binding.chipFilterNightly.tag to binding.chipFilterNightly,
 
+            binding.checkboxBachareladoCienciaTecnologia.tag to binding.checkboxBachareladoCienciaTecnologia,
             binding.checkboxBachareladoBiotecnologia.tag to binding.checkboxBachareladoBiotecnologia,
             binding.checkboxBachareladoCienciaComputacao.tag to binding.checkboxBachareladoCienciaComputacao,
             binding.checkboxBachareladoCienciaDados.tag to binding.checkboxBachareladoCienciaDados,
@@ -43,6 +44,22 @@ class FilterFragment : Fragment() {
             binding.checkboxBachareladoNeurociencia.tag to binding.checkboxBachareladoNeurociencia,
             binding.checkboxBachareladoQuimica.tag to binding.checkboxBachareladoQuimica,
 
+            binding.checkboxBachareladoCienciasHumanidades.tag to binding.checkboxBachareladoCienciasHumanidades,
+            binding.checkboxBachareladoCienciasEconomicas.tag to binding.checkboxBachareladoCienciasEconomicas,
+            binding.checkboxBachareladoFilosofia.tag to binding.checkboxBachareladoFilosofia,
+            binding.checkboxBachareladoPlanejamentoTerritorial.tag to binding.checkboxBachareladoPlanejamentoTerritorial,
+            binding.checkboxBachareladoPoliticasPublicas.tag to binding.checkboxBachareladoPoliticasPublicas,
+            binding.checkboxBachareladoRelacoesInternacionais.tag to binding.checkboxBachareladoRelacoesInternacionais,
+
+            binding.checkboxLicenciaturaCienciasHumanas.tag to binding.checkboxLicenciaturaCienciasHumanas,
+            binding.checkboxLicenciaturaFilosofia.tag to binding.checkboxLicenciaturaFilosofia,
+            binding.checkboxLicenciaturaHistoria.tag to binding.checkboxLicenciaturaHistoria,
+
+            binding.checkboxLicenciaturaCienciasNaturaisExatas.tag to binding.checkboxLicenciaturaCienciasNaturaisExatas,
+            binding.checkboxLicenciaturaCienciasBiologicas.tag to binding.checkboxLicenciaturaCienciasBiologicas,
+            binding.checkboxLicenciaturaFisica.tag to binding.checkboxLicenciaturaFisica,
+            binding.checkboxLicenciaturaMatematica.tag to binding.checkboxLicenciaturaMatematica,
+            binding.checkboxLicenciaturaQuimica.tag to binding.checkboxLicenciaturaQuimica,
 
             )
     }

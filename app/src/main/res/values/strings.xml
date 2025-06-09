@@ -12,6 +12,9 @@
     <string name="campus">Campus</string>
     <string name="vacancies">N vagas</string>
 
+    <string name="bacharelado_ciencia_tecnologia">Bacharelado em Ciência e Tecnologia</string>
+    <string name="tag_bacharelado_ciencia_tecnologia">BACHARELADO EM CIÊNCIA E TECNOLOGIA</string>
+
     <string name="bacharelado_biotecnologia">Bacharelado em Biotecnologia</string>
     <string name="tag_bacharelado_biotecnologia">BACHARELADO EM BIOTECNOLOGIA</string>
 
@@ -61,6 +64,52 @@
     <string name="tag_bacharelado_quimica">BACHARELADO EM QUÍMICA</string>
 
 
+    <string name="bacharelado_ciencias_humanidades">Bacharelado em Ciências e Humanidades</string>
+    <string name="tag_bacharelado_ciencias_humanidades">BACHARELADO EM CIÊNCIAS E HUMANIDADES</string>
+
+    <string name="bacharelado_ciencias_economicas">Bacharelado em Ciências Econômicas</string>
+    <string name="tag_bacharelado_ciencias_economicas">BACHARELADO EM CIÊNCIAS ECONÔMICAS</string>
+
+    <string name="bacharelado_filosofia">Bacharelado em Filosofia</string>
+    <string name="tag_bacharelado_filosofia">BACHARELADO EM FILOSOFIA</string>
+
+    <string name="bacharelado_planejamento_territorial">Bacharelado em Planejamento Territorial</string>
+    <string name="tag_bacharelado_planejamento_territorial">BACHARELADO EM PLANEJAMENTO TERRITORIAL</string>
+
+    <string name="bacharelado_politicas_publicas">Bacharelado em Políticas Públicas</string>
+    <string name="tag_bacharelado_politicas_publicas">BACHARELADO EM POLÍTICAS PÚBLICAS</string>
+
+    <string name="bacharelado_relacoes_internacionais">Bacharelado em Relações Internacionais</string>
+    <string name="tag_bacharelado_relacoes_internacionais">BACHARELADO EM RELAÇÕES INTERNACIONAIS</string>
+
+
+    <string name="licenciatura_ciencias_humanas">Licenciatura em Ciências Humanas</string>
+    <string name="tag_licenciatura_ciencias_humanas">LICENCIATURA EM CIÊNCIAS HUMANAS</string>
+
+    <string name="licenciatura_filosofia">Licenciatura em Filosofia</string>
+    <string name="tag_licenciatura_filosofia">LICENCIATURA EM FILOSOFIA</string>
+
+    <string name="licenciatura_historia">Licenciatura em História</string>
+    <string name="tag_licenciatura_historia">LICENCIATURA EM HISTÓRIA</string>
+
+
+    <string name="licenciatura_ciencias_naturais_exatas">Licenciatura em Ciências Naturais e Exatas</string>
+    <string name="tag_licenciatura_ciencias_naturais_exatas">LICENCIATURA EM CIÊNCIAS NATURAIS E EXATAS</string>
+
+    <string name="licenciatura_ciencias_biologicas">Licenciatura em Ciências Biológicas</string>
+    <string name="tag_licenciatura_ciencias_biologicas">LICENCIATURA EM CIÊNCIAS BIOLÓGICAS</string>
+
+    <string name="licenciatura_fisica">Licenciatura em Física</string>
+    <string name="tag_licenciatura_fisica">LICENCIATURA EM FÍSICA</string>
+
+    <string name="licenciatura_matematica">Licenciatura em Matemática</string>
+    <string name="tag_licenciatura_matematica">LICENCIATURA EM MATEMÁTICA</string>
+
+    <string name="licenciatura_quimica">Licenciatura em Química</string>
+    <string name="tag_licenciatura_quimica">LICENCIATURA EM QUÍMICA</string>
+
+
+
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -74,4 +123,5 @@
     <string name="shift">Turno</string>
     <string name="morning">Diurno</string>
     <string name="night">Noturno</string>
+
 </resources>

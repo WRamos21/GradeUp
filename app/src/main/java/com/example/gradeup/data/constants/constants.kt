@@ -12,6 +12,8 @@ class constants {
         const val SHIFT_MORNING = "Matutino"
         const val SHIFT_NIGHT = "Noturno"
         val LIST_COURSES = listOf(
+
+            "BACHARELADO EM CIÊNCIA E TECNOLOGIA",
             "BACHARELADO EM BIOTECNOLOGIA",
             "BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO",
             "BACHARELADO EM CIÊNCIA DE DADOS",
@@ -27,7 +29,25 @@ class constants {
             "BACHARELADO EM FÍSICA",
             "BACHARELADO EM MATEMÁTICA",
             "BACHARELADO EM NEUROCIÊNCIA",
-            "BACHARELADO EM QUÍMICA"
+            "BACHARELADO EM QUÍMICA",
+
+            "BACHARELADO EM CIÊNCIAS E HUMANIDADES",
+            "BACHARELADO EM CIÊNCIAS ECONÔMICAS",
+            "BACHARELADO EM FILOSOFIA",
+            "BACHARELADO EM PLANEJAMENTO TERRITORIAL",
+            "BACHARELADO EM POLÍTICAS PÚBLICAS",
+            "BACHARELADO EM RELAÇÕES INTERNACIONAIS",
+
+            "LICENCIATURA EM CIÊNCIAS HUMANAS",
+            "LICENCIATURA EM FILOSOFIA",
+            "LICENCIATURA EM HISTÓRIA",
+
+            "LICENCIATURA EM CIÊNCIAS NATURAIS E EXATAS",
+            "LICENCIATURA EM CIÊNCIAS BIOLÓGICAS",
+            "LICENCIATURA EM FÍSICA",
+            "LICENCIATURA EM MATEMÁTICA",
+            "LICENCIATURA EM QUÍMICA",
+
         )
 
     }

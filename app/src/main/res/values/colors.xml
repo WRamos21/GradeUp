@@ -4,7 +4,7 @@
     <color name="primary">#ED770D</color>
     <color name="onPrimary">#FFFFFF</color>
 
-    <color name="background">#F1F2F4</color>
+    <color name="background">#F9F9FB</color>
     <color name="onBackground">#000000</color>
 
     <color name="surface">#FFFFFF</color>
@@ -13,7 +13,7 @@
 
     <color name="backgroundFilter">#FFFFFF</color>
     <color name="onBackgroundFilter">#797A7A</color>
-    <color name="SurfaceFilter">#F1F2F4</color>
+    <color name="SurfaceFilter">#F9F9FB</color>
     <color name="onSurfaceFilter">#939396</color>
 
 

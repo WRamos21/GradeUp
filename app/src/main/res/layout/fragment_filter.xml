@@ -67,13 +67,13 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter" />
 
             <com.google.android.material.chip.Chip
-                android:tag="SA"
                 android:id="@+id/chip_filter_sa"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:checkable="true"
+                android:tag="SA"
                 android:text="@string/campus_sa"
                 android:textAlignment="center"
                 android:textColor="@color/chip_text_selector"
@@ -85,13 +85,13 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter_campus" />
 
             <com.google.android.material.chip.Chip
-                android:tag="SB"
                 android:id="@+id/chip_filter_sbc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:checkable="true"
+                android:tag="SB"
                 android:text="@string/campus_sb"
                 android:textAlignment="center"
                 android:textColor="@color/chip_text_selector"
@@ -115,13 +115,13 @@
                 app:layout_constraintTop_toBottomOf="@id/chip_filter_sa" />
 
             <com.google.android.material.chip.Chip
-                android:tag="Matutino"
                 android:id="@+id/chip_filter_daytime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:checkable="true"
+                android:tag="Matutino"
                 android:text="@string/morning"
                 android:textAlignment="center"
                 android:textColor="@color/chip_text_selector"
@@ -133,13 +133,13 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter_schedules" />
 
             <com.google.android.material.chip.Chip
-                android:tag="Noturno"
                 android:id="@+id/chip_filter_nightly"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:checkable="true"
+                android:tag="Noturno"
                 android:text="@string/night"
                 android:textAlignment="center"
                 android:textColor="@color/chip_text_selector"
@@ -163,14 +163,14 @@
                 app:layout_constraintTop_toBottomOf="@id/chip_filter_daytime" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_biotecnologia"
-                android:id="@+id/checkbox_bacharelado_biotecnologia"
+                android:id="@+id/checkbox_bacharelado_ciencia_tecnologia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
-                android:text="@string/bacharelado_biotecnologia"
+                android:tag="@string/tag_bacharelado_ciencia_tecnologia"
+                android:text="@string/bacharelado_ciencia_tecnologia"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
@@ -178,13 +178,30 @@
                 app:layout_constraintTop_toBottomOf="@id/text_filter_course" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_ciencia_computacao"
-                android:id="@+id/checkbox_bacharelado_ciencia_computacao"
+                android:id="@+id/checkbox_bacharelado_biotecnologia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_biotecnologia"
+                android:text="@string/bacharelado_biotecnologia"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_ciencia_tecnologia" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_ciencia_computacao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_ciencia_computacao"
                 android:text="@string/bacharelado_ciencia_computacao"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -193,13 +210,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_biotecnologia" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_ciencia_dados"
                 android:id="@+id/checkbox_bacharelado_ciencia_dados"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_ciencia_dados"
                 android:text="@string/bacharelado_ciencia_dados"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -208,13 +226,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_ciencia_computacao" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_ciencias_biologicas"
                 android:id="@+id/checkbox_bacharelado_ciencias_biologicas"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_ciencias_biologicas"
                 android:text="@string/bacharelado_ciencias_biologicas"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -223,13 +242,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_ciencia_dados" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_aeroespacial"
                 android:id="@+id/checkbox_bacharelado_engenharia_aeroespacial"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_aeroespacial"
                 android:text="@string/bacharelado_engenharia_aeroespacial"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -238,13 +258,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_ciencias_biologicas" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_ambiental_urbana"
                 android:id="@+id/checkbox_bacharelado_engenharia_ambiental_urbana"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_ambiental_urbana"
                 android:text="@string/bacharelado_engenharia_ambiental_urbana"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -253,13 +274,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_aeroespacial" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_biomedica"
                 android:id="@+id/checkbox_bacharelado_engenharia_biomedica"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_biomedica"
                 android:text="@string/bacharelado_engenharia_biomedica"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -268,13 +290,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_ambiental_urbana" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_informacao"
                 android:id="@+id/checkbox_bacharelado_engenharia_informacao"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_informacao"
                 android:text="@string/bacharelado_engenharia_informacao"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -283,13 +306,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_biomedica" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_energia"
                 android:id="@+id/checkbox_bacharelado_engenharia_energia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_energia"
                 android:text="@string/bacharelado_engenharia_energia"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -298,13 +322,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_informacao" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_gestao"
                 android:id="@+id/checkbox_bacharelado_engenharia_gestao"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_gestao"
                 android:text="@string/bacharelado_engenharia_gestao"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -313,13 +338,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_energia" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_automacao_robotica"
                 android:id="@+id/checkbox_bacharelado_engenharia_automacao_robotica"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_automacao_robotica"
                 android:text="@string/bacharelado_engenharia_automacao_robotica"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -328,13 +354,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_gestao" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_engenharia_materiais"
                 android:id="@+id/checkbox_bacharelado_engenharia_materiais"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_engenharia_materiais"
                 android:text="@string/bacharelado_engenharia_materiais"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -343,13 +370,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_automacao_robotica" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_fisica"
                 android:id="@+id/checkbox_bacharelado_fisica"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_fisica"
                 android:text="@string/bacharelado_fisica"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -358,13 +386,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_engenharia_materiais" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_matematica"
                 android:id="@+id/checkbox_bacharelado_matematica"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_matematica"
                 android:text="@string/bacharelado_matematica"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -373,13 +402,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_fisica" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_neurociencia"
                 android:id="@+id/checkbox_bacharelado_neurociencia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_neurociencia"
                 android:text="@string/bacharelado_neurociencia"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -388,13 +418,14 @@
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_matematica" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:tag="@string/tag_bacharelado_quimica"
                 android:id="@+id/checkbox_bacharelado_quimica"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:buttonTint="@color/checkbox_background_selector"
                 android:fontFamily="@font/inter_medium"
                 android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_quimica"
                 android:text="@string/bacharelado_quimica"
                 android:textColor="@color/checkbox_background_selector"
                 android:textSize="14sp"
@@ -402,7 +433,237 @@
                 app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
                 app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_neurociencia" />
 
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_ciencias_humanidades"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_ciencias_humanidades"
+                android:text="@string/bacharelado_ciencias_humanidades"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_quimica" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_ciencias_economicas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_ciencias_economicas"
+                android:text="@string/bacharelado_ciencias_economicas"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_ciencias_humanidades" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_filosofia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_filosofia"
+                android:text="@string/bacharelado_filosofia"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_ciencias_economicas" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_planejamento_territorial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_planejamento_territorial"
+                android:text="@string/bacharelado_planejamento_territorial"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_filosofia" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_politicas_publicas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_politicas_publicas"
+                android:text="@string/bacharelado_politicas_publicas"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_planejamento_territorial" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_bacharelado_relacoes_internacionais"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_bacharelado_relacoes_internacionais"
+                android:text="@string/bacharelado_relacoes_internacionais"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_politicas_publicas" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_ciencias_humanas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_ciencias_humanas"
+                android:text="@string/licenciatura_ciencias_humanas"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_bacharelado_relacoes_internacionais" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_filosofia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_filosofia"
+                android:text="@string/licenciatura_filosofia"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_ciencias_humanas" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_historia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_historia"
+                android:text="@string/licenciatura_historia"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_filosofia" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_ciencias_naturais_exatas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_ciencias_naturais_exatas"
+                android:text="@string/licenciatura_ciencias_naturais_exatas"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_historia" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_ciencias_biologicas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_ciencias_biologicas"
+                android:text="@string/licenciatura_ciencias_biologicas"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_ciencias_naturais_exatas" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_fisica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_fisica"
+                android:text="@string/licenciatura_fisica"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_ciencias_biologicas" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_matematica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_matematica"
+                android:text="@string/licenciatura_matematica"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_fisica" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_licenciatura_quimica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:buttonTint="@color/checkbox_background_selector"
+                android:fontFamily="@font/inter_medium"
+                android:minHeight="0dp"
+                android:tag="@string/tag_licenciatura_quimica"
+                android:text="@string/licenciatura_quimica"
+                android:textColor="@color/checkbox_background_selector"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/chip_filter_nightly"
+                app:layout_constraintStart_toStartOf="@id/chip_filter_daytime"
+                app:layout_constraintTop_toBottomOf="@id/checkbox_licenciatura_matematica" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </ScrollView>
 
