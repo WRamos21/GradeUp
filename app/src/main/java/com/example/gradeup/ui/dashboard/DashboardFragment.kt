@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.gradeup.FragmentPageAdapter
 import com.example.gradeup.databinding.FragmentDashboardBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,13 +23,25 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupViewPager()
+    }
+
+    private fun setupViewPager() {
+        val pagerAdapter = FragmentPageAdapter(this)
+
+        binding.viewPager.adapter = pagerAdapter
+
+        // TabLayoutMediator É uma classe que sincroniza automaticamente um TabLayout (as abas) com um ViewPager2, a função lambda é chamada para cada aba
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position -> // tab é uma aba e position é o numero dela
+            tab.text = pagerAdapter.getDiaNome(position)
+        }.attach() //Ativa a sincronização entre TabLayout e ViewPager
     }
 
     override fun onDestroyView() {

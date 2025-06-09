@@ -51,7 +51,8 @@ android {
 }
 
 dependencies {
-
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("com.google.android.material:material:1.9.0")
     implementation (libs.retrofit2.retrofit)
     implementation (libs.converter.gson)
     implementation(libs.androidx.core.ktx)
