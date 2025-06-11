@@ -3,7 +3,6 @@ package com.example.gradeup.ui.home
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.gradeup.FilterFragment
 import com.example.gradeup.R
 import com.example.gradeup.databinding.FragmentHomeBinding
 import com.example.gradeup.ui.adapter.SubjectsAdapter
-import kotlinx.coroutines.delay
 
 class HomeFragment : Fragment() {
 

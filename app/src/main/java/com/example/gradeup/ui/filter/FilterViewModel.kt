@@ -1,7 +1,6 @@
-package com.example.gradeup
+package com.example.gradeup.ui.filter
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gradeup.data.PreferencesManager

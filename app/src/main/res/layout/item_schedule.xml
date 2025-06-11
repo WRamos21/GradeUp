@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/surface"
+        app:contentPadding="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedShape"
+        app:strokeWidth="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_title_subject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="start"
+                android:text="@string/subject_title"
+                android:textColor="@color/onSurface"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@id/icon_vacancies"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/inter"
+                android:text="@string/course"
+                android:textColor="@color/onSurface"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@id/text_campus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_subject" />
+
+            <TextView
+                android:id="@+id/text_campus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/inter_light"
+                android:text="@string/campus"
+                android:textColor="@color/onSurface"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/constraint_more_info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_course" />
+
+            <TextView
+                android:id="@+id/text_vacancies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/vacancies"
+                android:textColor="@color/onSurface"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/icon_vacancies"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/icon_vacancies" />
+
+            <ImageView
+                android:id="@+id/icon_vacancies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_people"
+                app:layout_constraintEnd_toStartOf="@id/text_vacancies"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_more_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FAFAFA"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_campus">
+
+                <ImageView
+                    android:id="@+id/icon_theory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_book"
+                    app:layout_constraintEnd_toStartOf="@id/text_theory"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/primary" />
+
+                <TextView
+                    android:id="@+id/text_theory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="@string/theory"
+                    android:textColor="@color/onSurface"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_theory"
+                    app:layout_constraintStart_toEndOf="@id/icon_theory"
+                    app:layout_constraintTop_toTopOf="@id/icon_theory" />
+
+                <TextView
+                    android:id="@+id/text_theory_teacher"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start"
+                    android:text="NOME DO PROFESSOR"
+                    android:textColor="@color/onSurface"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_theory"
+                    app:layout_constraintTop_toTopOf="@id/text_theory" />
+
+                <TextView
+                    android:id="@+id/text_schedules_theory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="start"
+                    android:text="Horarios"
+                    android:textColor="@color/onSurface"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/text_theory"
+                    app:layout_constraintTop_toBottomOf="@id/text_theory_teacher" />
+
+
+                <ImageView
+                    android:id="@+id/icon_pratice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_experiment"
+                    app:layout_constraintEnd_toStartOf="@id/text_pratice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_schedules_theory"
+                    app:tint="@color/primary" />
+
+                <TextView
+                    android:id="@+id/text_pratice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="@string/practice"
+                    android:textColor="@color/onSurface"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_pratice"
+                    app:layout_constraintStart_toEndOf="@id/icon_pratice"
+                    app:layout_constraintTop_toTopOf="@id/icon_pratice" />
+
+                <TextView
+                    android:id="@+id/text_pratice_teacher"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start"
+                    android:text="NOME DO PROFESSOR"
+                    android:textColor="@color/onSurface"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_pratice"
+                    app:layout_constraintTop_toTopOf="@id/text_pratice" />
+
+                <TextView
+                    android:id="@+id/text_schedules_pratice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="start"
+                    android:text="@string/Schedules"
+                    android:textColor="@color/onSurface"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/text_pratice"
+                    app:layout_constraintTop_toBottomOf="@id/text_pratice_teacher" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

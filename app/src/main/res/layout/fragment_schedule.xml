@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.schedule.ScheduleFragment">
+
+    <TextView
+        android:id="@+id/text_my_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Minha Grade"
+        android:textColor="@color/onBackground"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_biweekly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Quinzenal I"
+        android:textColor="@color/onBackgroundVariantDark"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/text_my_schedule"
+        app:layout_constraintTop_toBottomOf="@id/text_my_schedule" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_biweekly"
+        android:background="@color/background"
+        app:tabBackground="@drawable/tab_background"
+        app:tabIndicatorHeight="0sp"
+        app:tabMode="fixed"
+        app:tabSelectedTextAppearance="@style/CustomTabTextAppearance"
+        app:tabSelectedTextColor="@color/surface"
+        app:tabTextAppearance="@style/CustomTabTextAppearance"
+        app:tabTextColor="@color/onBackgroundVariantLight" />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,23 @@
-package com.example.gradeup
+package com.example.gradeup.ui.adapter
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.gradeup.ui.schedule.DayFragment
 
 class FragmentPageAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
-    private val diasSemana = listOf("SEGUNDA", "TERCA", "QUARTA", "QUINTA", "SEXTA", "SABADO")
+    private val dayWeek = listOf("SEGUNDA", "TERCA", "QUARTA", "QUINTA", "SEXTA", "SABADO")
 
     // FragmentStateAdapter que se encarrega de chamar essa função automaticamente.
-    override fun getItemCount() = diasSemana.size
+    override fun getItemCount() = dayWeek.size
 
     // FragmentStateAdapter que se encarrega de chamar essa função automaticamente.
     override fun createFragment(position: Int): Fragment {
-        return DayFragment.newInstance(diasSemana[position])
+        return DayFragment.newInstance(dayWeek[position])
     }
 
-    fun getDiaNome(position: Int): String {
-        return when (diasSemana[position]) {
+    fun getDayName(position: Int): String {
+        return when (dayWeek[position]) {
             "SEGUNDA" -> "SEG"
             "TERCA" -> "TER"
             "QUARTA" -> "QUA"

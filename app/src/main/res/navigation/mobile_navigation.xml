@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.gradeup.ui.dashboard.DashboardFragment"
+        android:name="com.example.gradeup.ui.schedule.ScheduleFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_schedule" />
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.gradeup.FilterFragment"
+        android:name="com.example.gradeup.ui.filter.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter">
     </fragment>

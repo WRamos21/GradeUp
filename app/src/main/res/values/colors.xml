@@ -6,6 +6,8 @@
 
     <color name="background">#F9F9FB</color>
     <color name="onBackground">#000000</color>
+    <color name="onBackgroundVariantDark">#949494</color>
+    <color name="onBackgroundVariantLight">#BABABA</color>
 
     <color name="surface">#FFFFFF</color>
     <color name="onSurface">#000000</color>
@@ -15,6 +17,7 @@
     <color name="onBackgroundFilter">#797A7A</color>
     <color name="SurfaceFilter">#F9F9FB</color>
     <color name="onSurfaceFilter">#939396</color>
+
 
 
 
