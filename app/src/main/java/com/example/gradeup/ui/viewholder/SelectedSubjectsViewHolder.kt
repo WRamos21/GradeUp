@@ -2,13 +2,13 @@ package com.example.gradeup.ui.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gradeup.data.local.subject.SubjectEntity
-import com.example.gradeup.databinding.ItemSubjectBinding
+import com.example.gradeup.data.local.selectedsubjects.SelectedSubjectEntity
+import com.example.gradeup.databinding.ItemScheduleBinding
 
-class SubjectsViewHolder(private val item: ItemSubjectBinding) :
+class SelectedSubjectsViewHolder(private val item: ItemScheduleBinding) :
     RecyclerView.ViewHolder(item.root) {
 
-    fun bind(subject: SubjectEntity) {
+    fun bind(subject: SelectedSubjectEntity) {
         item.textTitleSubject.text = subject.disciplina
         item.textCampus.text = buildString {
             append(subject.turmaCodigo)
@@ -52,4 +52,3 @@ class SubjectsViewHolder(private val item: ItemSubjectBinding) :
         }
     }
 }
-

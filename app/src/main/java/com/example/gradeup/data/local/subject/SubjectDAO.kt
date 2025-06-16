@@ -1,4 +1,4 @@
-package com.example.gradeup.data.local
+package com.example.gradeup.data.local.subject
 
 import androidx.room.Dao
 import androidx.room.Insert

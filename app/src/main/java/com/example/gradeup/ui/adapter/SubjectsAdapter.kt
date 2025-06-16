@@ -3,8 +3,7 @@ package com.example.gradeup.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gradeup.data.local.SubjectEntity
-import com.example.gradeup.data.model.SubjectModel
+import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.databinding.ItemSubjectBinding
 import com.example.gradeup.ui.viewholder.SubjectsViewHolder
 

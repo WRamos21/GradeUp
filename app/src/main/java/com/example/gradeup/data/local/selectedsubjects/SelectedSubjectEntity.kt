@@ -1,11 +1,12 @@
-package com.example.gradeup.data.local
+package com.example.gradeup.data.local.selectedsubjects
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Subject")
-class SubjectEntity (
+@Entity(tableName = "SelectedSubject")
+
+class SelectedSubjectEntity(
 
     @PrimaryKey
     @ColumnInfo(name="codigo")
@@ -49,5 +50,4 @@ class SubjectEntity (
 
     @ColumnInfo(name="docentePratica")
     var docentePratica: String,
-
 )

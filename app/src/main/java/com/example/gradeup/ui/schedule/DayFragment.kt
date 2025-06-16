@@ -5,11 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gradeup.databinding.FragmentDayBinding
+import com.example.gradeup.ui.adapter.SelectedSubjectsAdapter
 
 class DayFragment : Fragment() {
     private var _binding: FragmentDayBinding? = null
     private val binding get() = _binding!!
+
+    private val dayViewModel: DayViewModel by viewModels()
+    private val adapter: SelectedSubjectsAdapter = SelectedSubjectsAdapter()
 
     companion object {
         private const val ARG_DAY = "day"
@@ -36,12 +42,22 @@ class DayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val day = arguments?.getString(ARG_DAY)
-        binding.title.text = day
+//        binding.title.text = day
 
+        //configuracao recyclerView
+        binding.recyclerviewSubjectsSchedule.layoutManager = LinearLayoutManager(context)
+        binding.recyclerviewSubjectsSchedule.adapter = adapter
+        setOnserver()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setOnserver(){
+        dayViewModel.selectedSubjectsList.observe(viewLifecycleOwner){
+            adapter.updateSelectedSubjects(it)
+        }
     }
 }

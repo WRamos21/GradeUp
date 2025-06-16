@@ -6,8 +6,8 @@ import com.example.gradeup.R
 import com.example.gradeup.data.PreferencesManager
 import com.example.gradeup.data.constants.constants
 import com.example.gradeup.data.local.FilterModel
-import com.example.gradeup.data.local.SubjectDatabase
-import com.example.gradeup.data.local.SubjectEntity
+import com.example.gradeup.data.local.subject.SubjectDatabase
+import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.data.model.SubjectModel
 import com.example.gradeup.data.remote.APIListener
 import com.example.gradeup.data.remote.RetrofitClient
@@ -22,6 +22,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SubjectRepository(val context: Context) {
+    private val selectedRepository: SelectedSubjectRepository = SelectedSubjectRepository(context)
     private val filter = FilterModel()
     private val prefManager = PreferencesManager(context)
     private val remote = RetrofitClient.createService(SubjectService::class.java)
@@ -77,6 +78,7 @@ class SubjectRepository(val context: Context) {
 
     fun getAllFromLocal(string: String): Flow<List<SubjectEntity>> {
         createFilter()
+        val lista = selectedRepository.getAllSelectSubject()
         return localDataBase.getFilteredSubject(string, filter.campus, filter.shifts, filter.courses)
     }
 
