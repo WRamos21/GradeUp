@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gradeup.data.local.selectedsubjects.SelectedSubjectEntity
+import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.databinding.ItemScheduleBinding
 import com.example.gradeup.databinding.ItemSubjectBinding
 import com.example.gradeup.ui.viewholder.SelectedSubjectsViewHolder
 
-class SelectedSubjectsAdapter : RecyclerView.Adapter<SelectedSubjectsViewHolder>() {
+class SelectedSubjectsAdapter(private val onItemLongClick: (SelectedSubjectEntity, Int) -> Unit) : RecyclerView.Adapter<SelectedSubjectsViewHolder>() {
     private var selectedSubjectList: List<SelectedSubjectEntity> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectedSubjectsViewHolder {
@@ -17,7 +18,7 @@ class SelectedSubjectsAdapter : RecyclerView.Adapter<SelectedSubjectsViewHolder>
             parent,
             false
         ) // criar um LaouteInflate com o contexto da recycler, parent diz onde o item vai ser criado, false delega a propria RecyclerView colocar o item
-        return SelectedSubjectsViewHolder(view)
+        return SelectedSubjectsViewHolder(view, onItemLongClick)
     }
 
     override fun getItemCount(): Int {
