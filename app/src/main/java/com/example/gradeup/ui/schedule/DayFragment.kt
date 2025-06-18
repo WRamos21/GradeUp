@@ -42,7 +42,8 @@ class DayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val day = arguments?.getString(ARG_DAY)
-//        binding.title.text = day
+//      binding.title.text = day
+        dayViewModel.getSelectSubjectWithDayWeek(day.toString())
 
         //configuracao recyclerView
         binding.recyclerviewSubjectsSchedule.layoutManager = LinearLayoutManager(context)

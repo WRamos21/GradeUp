@@ -78,7 +78,6 @@ class SubjectRepository(val context: Context) {
 
     fun getAllFromLocal(string: String): Flow<List<SubjectEntity>> {
         createFilter()
-        val lista = selectedRepository.getAllSelectSubject()
         return localDataBase.getFilteredSubject(string, filter.campus, filter.shifts, filter.courses)
     }
 

@@ -20,7 +20,11 @@ class SelectedSubjectRepository(val context: Context) {
     }
 
     fun getAllSelectSubject(): Flow<List<SelectedSubjectEntity>> {
-        val list =  localDataBase.getAllSelectSubject()
+        return localDataBase.getAllSelectSubject()
+    }
+
+    fun getSelectSubjectWithDayWeek(dayWeek: String): Flow<List<SelectedSubjectEntity>> {
+        val list =  localDataBase.getSelectSubjectWithDayWeek(dayWeek)
         CoroutineScope(Dispatchers.IO).launch {
             list.first().let { entities ->
                 Log.d("Repository", "Primeira emissão: ${entities.size} itens:")
@@ -30,9 +34,9 @@ class SelectedSubjectRepository(val context: Context) {
                 }
             }
         }
-
         return list
     }
+
 
     private fun SubjectEntity.toSelectedSubjectEntity(): SelectedSubjectEntity{
         return SelectedSubjectEntity(

@@ -95,7 +95,30 @@ abstract class SelectedSubjectDatabase :
                     quinta = "SEM 10:00 T",
                     sexta = "",
                     sabado = "",
+                ),
+                SelectedSubjectEntity(
+                    codigo = "NA1MCBM004-23SA",
+                    turmaCodigo = "A1",
+                    curso = "BACHARELADO EM MATEMÁTICA",
+                    disciplina = "GEOMETRIA DIFERENCIAL",
+                    teoria = "terça das 21:00 às 23:00, semanal ; quarta das 21:00 às 23:00, semanal ; sexta das 19:00 às 21:00, semanal",
+                    pratica = "",
+                    campus = "SA",
+                    turno = "Noturno",
+                    tpi = "6-0-6",
+                    vagasTotais = 45,
+                    vagasIngressantes = 0,
+                    vagasVeteranos = 45,
+                    docenteTeoria = "Armando Caputi",
+                    docentePratica = "",
+                    segunda = "",
+                    terca = "SEM 21:00 T",
+                    quarta = "SEM 21:00 T",
+                    quinta = "",
+                    sexta = "SEM 19:00 T",
+                    sabado = "",
                 )
+
             )
         }
     }
