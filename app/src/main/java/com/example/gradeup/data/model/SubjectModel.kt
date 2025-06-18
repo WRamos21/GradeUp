@@ -46,4 +46,24 @@ class SubjectModel {
     @SerializedName("docente_pratica")
     var docentePratica: String = ""
 
+    @SerializedName("segunda")
+    var segunda: String = ""
+
+    @SerializedName("terca")
+    var terca: String = ""
+
+    @SerializedName("quarta")
+    var quarta: String = ""
+
+    @SerializedName("quinta")
+    var quinta: String = ""
+
+    @SerializedName("sexta")
+    var sexta: String = ""
+
+    @SerializedName("sabado")
+    var sabado: String = ""
+
+
+
 }

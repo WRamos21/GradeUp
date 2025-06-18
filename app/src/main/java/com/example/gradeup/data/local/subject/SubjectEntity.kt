@@ -5,49 +5,68 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Subject")
-class SubjectEntity (
+class SubjectEntity(
 
     @PrimaryKey
-    @ColumnInfo(name="codigo")
+    @ColumnInfo(name = "codigo")
     var codigo: String,
 
-    @ColumnInfo(name="turmaCodigo")
+    @ColumnInfo(name = "turmaCodigo")
     var turmaCodigo: String,
 
-    @ColumnInfo(name="curso")
+    @ColumnInfo(name = "curso")
     var curso: String,
 
-    @ColumnInfo(name="disciplina")
+    @ColumnInfo(name = "disciplina")
     var disciplina: String,
 
-    @ColumnInfo(name="teoria")
+    @ColumnInfo(name = "teoria")
     var teoria: String,
 
-    @ColumnInfo(name="pratica")
+    @ColumnInfo(name = "pratica")
     var pratica: String,
 
-    @ColumnInfo(name="campus")
+    @ColumnInfo(name = "campus")
     var campus: String,
 
-    @ColumnInfo(name="turno")
+    @ColumnInfo(name = "turno")
     var turno: String,
 
-    @ColumnInfo(name="tpi")
+    @ColumnInfo(name = "tpi")
     var tpi: String,
 
-    @ColumnInfo(name="vagasTotais")
+    @ColumnInfo(name = "vagasTotais")
     var vagasTotais: Int,
 
-    @ColumnInfo(name="vagasIngressantes")
+    @ColumnInfo(name = "vagasIngressantes")
     var vagasIngressantes: Int,
 
-    @ColumnInfo(name="vagasVeteranos")
+    @ColumnInfo(name = "vagasVeteranos")
     var vagasVeteranos: Int,
 
-    @ColumnInfo(name="docenteTeoria")
+    @ColumnInfo(name = "docenteTeoria")
     var docenteTeoria: String,
 
-    @ColumnInfo(name="docentePratica")
+    @ColumnInfo(name = "docentePratica")
     var docentePratica: String,
 
-)
+    @ColumnInfo(name = "segunda")
+    var segunda: String,
+
+    @ColumnInfo(name = "terca")
+    var terca: String,
+
+    @ColumnInfo(name = "quarta")
+    var quarta: String,
+
+    @ColumnInfo(name = "quinta")
+    var quinta: String,
+
+    @ColumnInfo(name = "sexta")
+    var sexta: String,
+
+    @ColumnInfo(name = "sabado")
+    var sabado: String,
+
+
+    )

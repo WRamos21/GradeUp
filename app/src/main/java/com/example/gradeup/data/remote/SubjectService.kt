@@ -12,6 +12,6 @@ import retrofit2.http.QueryMap
 interface SubjectService {
 
     @Headers("apikey: ${BuildConfig.SUPABASE_KEY_ANON}")
-    @GET("turmas")
+    @GET("turmas_duplicate")
     fun listAllSubjects(): Call<List<SubjectModel>>
 }

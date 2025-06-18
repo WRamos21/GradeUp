@@ -50,4 +50,22 @@ class SelectedSubjectEntity(
 
     @ColumnInfo(name="docentePratica")
     var docentePratica: String,
+
+    @ColumnInfo(name = "segunda")
+    var segunda: String,
+
+    @ColumnInfo(name = "terca")
+    var terca: String,
+
+    @ColumnInfo(name = "quarta")
+    var quarta: String,
+
+    @ColumnInfo(name = "quinta")
+    var quinta: String,
+
+    @ColumnInfo(name = "sexta")
+    var sexta: String,
+
+    @ColumnInfo(name = "sabado")
+    var sabado: String,
 )

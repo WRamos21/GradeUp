@@ -49,7 +49,14 @@ class SelectedSubjectRepository(val context: Context) {
             vagasIngressantes = this.vagasIngressantes,
             vagasVeteranos = this.vagasVeteranos,
             docenteTeoria = this.docenteTeoria,
-            docentePratica = this.docentePratica
+            docentePratica = this.docentePratica,
+            segunda = this.segunda,
+            terca = this.terca,
+            quarta = this.quarta,
+            quinta = this.quinta,
+            sexta = this.sexta,
+            sabado = this.sabado
+
         )
     }
 }
