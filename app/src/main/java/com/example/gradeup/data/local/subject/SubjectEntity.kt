@@ -68,5 +68,7 @@ class SubjectEntity(
     @ColumnInfo(name = "sabado")
     var sabado: String,
 
+    @ColumnInfo(name = "selected")
+    var selected: Boolean = false
 
     )

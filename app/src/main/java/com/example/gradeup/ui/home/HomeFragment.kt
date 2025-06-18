@@ -41,11 +41,9 @@ class HomeFragment : Fragment() {
 
         // Configuracao recyclerView
         binding.recyclerviewSubjects.layoutManager = LinearLayoutManager(context)
-
         adapter = SubjectsAdapter {subject, position -> //Estou intanciando SubjectAdapter passando a funçao que ele receberá
             selectSubjectOnLongPress(subject, position)
         }
-
         binding.recyclerviewSubjects.adapter = adapter
 
         // Configuracao da editText Search
@@ -108,5 +106,6 @@ class HomeFragment : Fragment() {
 
     private fun selectSubjectOnLongPress(subject: SubjectEntity, position: Int){
         Log.e("select", "${subject.disciplina} selecionada")
+        homeViewModel.selectSubject(subject)
     }
 }

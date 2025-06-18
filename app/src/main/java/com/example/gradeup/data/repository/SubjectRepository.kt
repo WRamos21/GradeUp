@@ -78,15 +78,23 @@ class SubjectRepository(val context: Context) {
 
     fun getAllFromLocal(string: String): Flow<List<SubjectEntity>> {
         createFilter()
-        return localDataBase.getFilteredSubject(string, filter.campus, filter.shifts, filter.courses)
+        return localDataBase.getFilteredSubject(
+            string,
+            filter.campus,
+            filter.shifts,
+            filter.courses
+        )
     }
 
     private fun createFilter() {
         CoroutineScope(Dispatchers.IO).launch {
             prefManager.getSelectedChips().collect { chips ->
-                val campusChips = listOf(constants.University.CAMPUS_SA, constants.University.CAMPUS_SB)
-                val selectedCampus = chips.filter { it in campusChips } // Reduz o chip [SA, SB, Noturno, Matutino ....] para apenas SA ou SB
-                val shiftChips = listOf(constants.University.SHIFT_MORNING, constants.University.SHIFT_NIGHT)
+                val campusChips =
+                    listOf(constants.University.CAMPUS_SA, constants.University.CAMPUS_SB)
+                val selectedCampus =
+                    chips.filter { it in campusChips } // Reduz o chip [SA, SB, Noturno, Matutino ....] para apenas SA ou SB
+                val shiftChips =
+                    listOf(constants.University.SHIFT_MORNING, constants.University.SHIFT_NIGHT)
                 val selectedShifts = chips.filter { it in shiftChips }
                 val selectedCourses = chips.filter { it in (constants.University.LIST_COURSES) }
 
@@ -104,6 +112,15 @@ class SubjectRepository(val context: Context) {
                     0, 16 -> listOf("ALL")
                     else -> selectedCourses
                 }
+            }
+        }
+    }
+
+    fun selectSubject(subject: SubjectEntity) {
+        if (!subject.selected) {
+            CoroutineScope(Dispatchers.IO).launch {
+                localDataBase.selectedSubject(subject.codigo, true)
+                selectedRepository.selectSubject(subject)
             }
         }
     }

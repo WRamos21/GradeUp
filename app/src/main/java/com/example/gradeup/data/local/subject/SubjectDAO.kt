@@ -3,6 +3,7 @@ package com.example.gradeup.data.local.subject
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -27,11 +28,13 @@ interface SubjectDAO {
         listCourses: List<String>
     ): Flow<List<SubjectEntity>>
 
-
     @Insert
     suspend fun create(subjects: List<SubjectEntity>)
 
     @Query("SELECT COUNT(*) FROM Subject")
     suspend fun getCount(): Int
+
+    @Query("UPDATE subject SET selected = :newStatus WHERE codigo = :subjectID")
+    suspend fun selectedSubject(subjectID: String, newStatus: Boolean)
 
 }

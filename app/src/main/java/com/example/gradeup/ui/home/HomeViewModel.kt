@@ -30,4 +30,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             _filter.value = filter
         }
     }
+
+    fun selectSubject(subject: SubjectEntity){
+        repository.selectSubject(subject)
+    }
 }

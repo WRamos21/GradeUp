@@ -1,7 +1,9 @@
 package com.example.gradeup.ui.viewholder
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gradeup.R
 import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.databinding.ItemSubjectBinding
 
@@ -13,10 +15,22 @@ class SubjectsViewHolder(
 
     fun bind(subject: SubjectEntity) {
 
-        item.root.setOnLongClickListener(){ //Quando clicar no item
-            onItemLongClick(subject, adapterPosition) //Subject é o dado e adpterPosition é a posição do item clicado
+        item.root.setOnLongClickListener() { //Quando clicar no item
+            onItemLongClick(
+                subject,
+                adapterPosition
+            ) //Subject é o dado e adpterPosition é a posição do item clicado
             true //True Indica que o envento de click foi consumido
         }
+
+        if (subject.selected) {
+            val color = ContextCompat.getColor(itemView.context, R.color.primary)
+            item.cardViewBackground.strokeColor = color
+        } else {
+            val color = ContextCompat.getColor(itemView.context, R.color.surface)
+            item.cardViewBackground.strokeColor = color
+        }
+
 
         //Visualizaçãa
         item.textTitleSubject.text = subject.disciplina

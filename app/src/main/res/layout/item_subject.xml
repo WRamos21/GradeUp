@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -19,7 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/RoundedShape"
-        app:strokeWidth="6dp">
+        app:strokeWidth="6dp"
+        app:strokeColor="@color/surface">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

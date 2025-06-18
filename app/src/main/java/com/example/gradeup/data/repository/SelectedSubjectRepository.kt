@@ -14,13 +14,8 @@ class SelectedSubjectRepository(val context: Context) {
         localDataBase.selectSubject(subject.toSelectedSubjectEntity())
     }
 
-    fun getAllSelectSubject(): Flow<List<SelectedSubjectEntity>> {
-        return localDataBase.getAllSelectSubject()
-    }
-
     fun getSelectSubjectWithDayWeek(dayWeek: String): Flow<List<SelectedSubjectEntity>> {
-        val list =  localDataBase.getSelectSubjectWithDayWeek(dayWeek)
-        return list
+        return localDataBase.getSelectSubjectWithDayWeek(dayWeek)
     }
 
     private fun SubjectEntity.toSelectedSubjectEntity(): SelectedSubjectEntity{
