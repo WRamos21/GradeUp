@@ -5,10 +5,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.databinding.ItemSubjectBinding
 
-class SubjectsViewHolder(private val item: ItemSubjectBinding) :
+class SubjectsViewHolder(
+    private val item: ItemSubjectBinding,
+    private val onItemLongClick: (SubjectEntity, Int) -> Unit
+) :
     RecyclerView.ViewHolder(item.root) {
 
     fun bind(subject: SubjectEntity) {
+
+        item.root.setOnLongClickListener(){ //Quando clicar no item
+            onItemLongClick(subject, adapterPosition) //Subject é o dado e adpterPosition é a posição do item clicado
+            true //True Indica que o envento de click foi consumido
+        }
+
+        //Visualizaçãa
         item.textTitleSubject.text = subject.disciplina
         item.textCampus.text = buildString {
             append(subject.turmaCodigo)

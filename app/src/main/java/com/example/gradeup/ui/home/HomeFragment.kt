@@ -1,8 +1,10 @@
 package com.example.gradeup.ui.home
 
+import android.icu.text.Transliterator.Position
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gradeup.R
+import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.databinding.FragmentHomeBinding
 import com.example.gradeup.ui.adapter.SubjectsAdapter
 
@@ -19,7 +22,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val adapter: SubjectsAdapter = SubjectsAdapter()
+    private lateinit var adapter: SubjectsAdapter
 
     private val homeViewModel: HomeViewModel by viewModels()
 
@@ -28,7 +31,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -39,6 +41,11 @@ class HomeFragment : Fragment() {
 
         // Configuracao recyclerView
         binding.recyclerviewSubjects.layoutManager = LinearLayoutManager(context)
+
+        adapter = SubjectsAdapter {subject, position -> //Estou intanciando SubjectAdapter passando a funçao que ele receberá
+            selectSubjectOnLongPress(subject, position)
+        }
+
         binding.recyclerviewSubjects.adapter = adapter
 
         // Configuracao da editText Search
@@ -97,5 +104,9 @@ class HomeFragment : Fragment() {
 
     private fun openFilterFragment(){
         findNavController().navigate(R.id.action_homeFragment_to_filterFragment)
+    }
+
+    private fun selectSubjectOnLongPress(subject: SubjectEntity, position: Int){
+        Log.e("select", "${subject.disciplina} selecionada")
     }
 }

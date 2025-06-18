@@ -11,11 +11,10 @@ import com.example.gradeup.data.repository.SelectedSubjectRepository
 class DayViewModel(application: Application): AndroidViewModel(application) {
     private val repository: SelectedSubjectRepository = SelectedSubjectRepository(application.applicationContext)
 
-    var selectedSubjectsList: LiveData<List<SelectedSubjectEntity>> = repository.getSelectSubjectWithDayWeek("segunda").asLiveData()
+    var selectedSubjectsList: LiveData<List<SelectedSubjectEntity>> = repository.getSelectSubjectWithDayWeek("").asLiveData()
 
     fun getSelectSubjectWithDayWeek(dayWeek: String){
         selectedSubjectsList = repository.getSelectSubjectWithDayWeek(dayWeek).asLiveData()
-        Log.e("TESTE", dayWeek)
     }
 
 }
