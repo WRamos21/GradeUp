@@ -21,8 +21,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SubjectRepository(val context: Context) {
-    private val selectedRepository: SelectedSubjectRepository = SelectedSubjectRepository(context)
+class SubjectRepository(
+    val context: Context,
+    private var selectedRepo: SelectedSubjectRepository? = null
+) {
+
+    //Cria singleton para instanciar SelectedRepository enviando a instancia desse SubjectRepository
+    private val selectedRepository by lazy {
+        selectedRepo ?: SelectedSubjectRepository(context, this)
+    }
+
     private val filter = FilterModel()
     private val prefManager = PreferencesManager(context)
     private val remote = RetrofitClient.createService(SubjectService::class.java)
@@ -119,9 +127,15 @@ class SubjectRepository(val context: Context) {
     fun selectSubject(subject: SubjectEntity) {
         if (!subject.selected) {
             CoroutineScope(Dispatchers.IO).launch {
-                localDataBase.selectedSubject(subject.codigo, true)
+                localDataBase.toggleSelectionSubject(subject.codigo, true)
                 selectedRepository.selectSubject(subject)
             }
+        }
+    }
+
+    fun deselectSubject(subjectID: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            localDataBase.toggleSelectionSubject(subjectID, false)
         }
     }
 
@@ -150,6 +164,5 @@ class SubjectRepository(val context: Context) {
 
         )
     }
-
 
 }

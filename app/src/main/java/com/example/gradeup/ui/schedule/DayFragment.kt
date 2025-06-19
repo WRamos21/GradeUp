@@ -71,5 +71,6 @@ class DayFragment : Fragment() {
 
     private fun selectSubjectOnLongPress(subject: SelectedSubjectEntity, position: Int){
         Log.e("remove", "${subject.disciplina} removida")
+        dayViewModel.deselectSubject(subject)
     }
 }

@@ -17,4 +17,8 @@ class DayViewModel(application: Application): AndroidViewModel(application) {
         selectedSubjectsList = repository.getSelectSubjectWithDayWeek(dayWeek).asLiveData()
     }
 
+    fun deselectSubject(subject: SelectedSubjectEntity) {
+    repository.deselectSubject(subject)
+    }
+
 }

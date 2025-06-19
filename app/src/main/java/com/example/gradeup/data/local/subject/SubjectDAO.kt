@@ -35,6 +35,6 @@ interface SubjectDAO {
     suspend fun getCount(): Int
 
     @Query("UPDATE subject SET selected = :newStatus WHERE codigo = :subjectID")
-    suspend fun selectedSubject(subjectID: String, newStatus: Boolean)
+    suspend fun toggleSelectionSubject(subjectID: String, newStatus: Boolean)
 
 }

@@ -1,6 +1,7 @@
 package com.example.gradeup.data.local.selectedsubjects
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.gradeup.data.local.subject.SubjectEntity
@@ -21,7 +22,8 @@ interface SelectedSubjectDAO {
     @Query("SELECT * FROM SelectedSubject")
     fun getAllSelectSubject(): Flow<List<SelectedSubjectEntity>>
 
-    @Query("""
+    @Query(
+        """
     SELECT * FROM SelectedSubject 
     WHERE CASE 
         WHEN :dayWeek = 'SEGUNDA' THEN segunda IS NOT NULL AND segunda != ''
@@ -32,7 +34,11 @@ interface SelectedSubjectDAO {
         WHEN :dayWeek = 'SABADO' THEN sabado IS NOT NULL AND sabado != ''
         ELSE 0
     END
-""")
+"""
+    )
     fun getSelectSubjectWithDayWeek(dayWeek: String): Flow<List<SelectedSubjectEntity>>
+
+    @Delete
+    suspend fun deselectSubject(subject: SelectedSubjectEntity)
 
 }
