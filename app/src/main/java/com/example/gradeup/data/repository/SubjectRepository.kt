@@ -28,7 +28,7 @@ class SubjectRepository(
 
     //Cria singleton para instanciar SelectedRepository enviando a instancia desse SubjectRepository
     private val selectedRepository by lazy {
-        selectedRepo ?: SelectedSubjectRepository(context, this)
+        selectedRepo ?: RepositoryManager.getSelectedSubjectRepository()
     }
 
     private val filter = FilterModel()

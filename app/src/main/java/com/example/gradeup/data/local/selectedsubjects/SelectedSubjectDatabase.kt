@@ -44,84 +44,10 @@ abstract class SelectedSubjectDatabase :
             CoroutineScope(Dispatchers.IO).launch {
                 instance?.let { database -> //database é o prametro que armazena instance dentro da funcao lambda
                     val dao = database.selectedSubjectDAO()
-                    dao.create(getInitialSubjects())
+                    dao.create(listOf())
 
                 }
             }
         }
-
-        private fun getInitialSubjects(): List<SelectedSubjectEntity> {
-            return listOf(
-                SelectedSubjectEntity(
-                    codigo = "NA1NHZ6005-18SA",
-                    turmaCodigo = "A1",
-                    curso = "BACHARELADO EM BIOTECNOLOGIA",
-                    disciplina = "LABORATÓRIO DE BIOPROCESSOS",
-                    teoria = "quinta das 21:00 às 23:00, semanal",
-                    pratica = "terça das 19:00 às 21:00, semanal",
-                    campus = "SA",
-                    turno = "Noturno",
-                    tpi = "2-2-4",
-                    vagasTotais = 30,
-                    vagasIngressantes = 0,
-                    vagasVeteranos = 30,
-                    docenteTeoria = "Marcelo Chuei Matsudo",
-                    docentePratica = "Marcelo Chuei Matsudo",
-                    segunda = "",
-                    terca = "",
-                    quarta = "",
-                    quinta = "SEM 21:00 T",
-                    sexta = "",
-                    sabado = ""
-                ),
-                SelectedSubjectEntity(
-                    codigo = "DA1NHZ6005-18SA",
-                    turmaCodigo = "A1",
-                    curso = "BACHARELADO EM BIOTECNOLOGIA",
-                    disciplina = "LABORATÓRIO DE BIOPROCESSOS",
-                    teoria = "quinta das 10:00 às 12:00, semanal",
-                    pratica = "terça das 08:00 às 10:00, semanal",
-                    campus = "SA",
-                    turno = "Matutino",
-                    tpi = "2-2-4",
-                    vagasTotais = 30,
-                    vagasIngressantes = 0,
-                    vagasVeteranos = 30,
-                    docenteTeoria = "Marcelo Chuei Matsudo",
-                    docentePratica = "Marcelo Chuei Matsudo",
-                    segunda = "",
-                    terca = "",
-                    quarta = "",
-                    quinta = "SEM 10:00 T",
-                    sexta = "",
-                    sabado = "",
-                ),
-                SelectedSubjectEntity(
-                    codigo = "NA1MCBM004-23SA",
-                    turmaCodigo = "A1",
-                    curso = "BACHARELADO EM MATEMÁTICA",
-                    disciplina = "GEOMETRIA DIFERENCIAL",
-                    teoria = "terça das 21:00 às 23:00, semanal ; quarta das 21:00 às 23:00, semanal ; sexta das 19:00 às 21:00, semanal",
-                    pratica = "",
-                    campus = "SA",
-                    turno = "Noturno",
-                    tpi = "6-0-6",
-                    vagasTotais = 45,
-                    vagasIngressantes = 0,
-                    vagasVeteranos = 45,
-                    docenteTeoria = "Armando Caputi",
-                    docentePratica = "",
-                    segunda = "",
-                    terca = "SEM 21:00 T",
-                    quarta = "SEM 21:00 T",
-                    quinta = "",
-                    sexta = "SEM 19:00 T",
-                    sabado = "",
-                )
-
-            )
-        }
     }
-
-
 }

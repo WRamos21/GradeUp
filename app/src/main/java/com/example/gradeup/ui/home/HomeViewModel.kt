@@ -8,12 +8,13 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import com.example.gradeup.data.local.subject.SubjectEntity
+import com.example.gradeup.data.repository.RepositoryManager
 import com.example.gradeup.data.repository.SubjectRepository
 import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: SubjectRepository = SubjectRepository(application.applicationContext)
+    private val repository: SubjectRepository = RepositoryManager.getSubjectRepository()
     private val _filter = MutableLiveData<String>()
 
     var subjectsRemote: LiveData<List<SubjectEntity>> =

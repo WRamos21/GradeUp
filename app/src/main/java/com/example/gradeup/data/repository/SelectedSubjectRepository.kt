@@ -14,7 +14,7 @@ class SelectedSubjectRepository(
     private var subjectRepo: SubjectRepository? = null
 ) {
     private val subjectRepository by lazy {
-        subjectRepo?: SubjectRepository(context, this)
+        subjectRepo?: RepositoryManager.getSubjectRepository()
     }
 
     private var localDataBase = SelectedSubjectDatabase.getDatabase(context).selectedSubjectDAO()
