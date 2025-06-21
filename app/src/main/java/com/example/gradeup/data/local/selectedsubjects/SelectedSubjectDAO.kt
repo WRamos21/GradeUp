@@ -33,7 +33,17 @@ interface SelectedSubjectDAO {
         WHEN :dayWeek = 'SEXTA' THEN sexta IS NOT NULL AND sexta != ''
         WHEN :dayWeek = 'SABADO' THEN sabado IS NOT NULL AND sabado != ''
         ELSE 0
-    END
+    END 
+    ORDER BY 
+        CASE 
+            WHEN :dayWeek = 'SEGUNDA' THEN SUBSTR(segunda,5,5)
+            WHEN :dayWeek = 'TERCA' THEN SUBSTR(terca,5,5)
+            WHEN :dayWeek = 'QUARTA' THEN SUBSTR(quarta,5,5)
+            WHEN :dayWeek = 'QUINTA' THEN SUBSTR(quinta,5,5)
+            WHEN :dayWeek = 'SEXTA' THEN SUBSTR(sexta,5,5)
+            WHEN :dayWeek = 'SABADO' THEN SUBSTR(sabado,5,5)
+        END ASC
+
 """
     )
     fun getSelectSubjectWithDayWeek(dayWeek: String): Flow<List<SelectedSubjectEntity>>

@@ -20,7 +20,8 @@ interface SubjectDAO {
                 "OR LOWER(disciplina || ' ' || turmaCodigo) LIKE LOWER('%' || :filter || '%'))" +
                 "AND (campus IN (:listCampus) OR 'ALL' IN (:listCampus))" +
                 "AND (turno IN (:listShift) OR 'ALL' IN (:listShift))" +
-                "AND (curso IN (:listCourses) OR 'ALL' IN (:listCourses))")
+                "AND (curso IN (:listCourses) OR 'ALL' IN (:listCourses))" +
+                "ORDER BY disciplina ASC")
     fun getFilteredSubject(
         filter: String,
         listCampus: List<String>,
