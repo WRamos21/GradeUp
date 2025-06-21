@@ -4,6 +4,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gradeup.R
+import com.example.gradeup.data.local.selectedsubjects.SelectedSubjectEntity
 import com.example.gradeup.data.local.subject.SubjectEntity
 import com.example.gradeup.databinding.ItemSubjectBinding
 
@@ -15,41 +16,19 @@ class SubjectsViewHolder(
 
     fun bind(subject: SubjectEntity) {
 
-        item.root.setOnLongClickListener() { //Quando clicar no item
-            onItemLongClick(
-                subject,
-                adapterPosition
-            ) //Subject é o dado e adpterPosition é a posição do item clicado
-            true //True Indica que o envento de click foi consumido
-        }
+        //Observaçao de click longo ao subject
+        setClickSubjectListener(subject)
 
-        if (subject.selected) {
-            val color = ContextCompat.getColor(itemView.context, R.color.primary)
-            item.cardViewBackground.strokeColor = color
-        } else {
-            val color = ContextCompat.getColor(itemView.context, R.color.surface)
-            item.cardViewBackground.strokeColor = color
-        }
+        setSubjectSelectColor(subject)
 
+        //Atribuiçao de dados
+        assignTextOnLayout(subject)
 
-        //Visualizaçãa
-        item.textTitleSubject.text = subject.disciplina
-        item.textCampus.text = buildString {
-            append(subject.turmaCodigo)
-            append(" | ")
-            append(subject.turno)
-            append(" | ")
-            append(subject.campus)
-        }
-        item.textCourse.text = subject.curso
-        item.textVacancies.text = subject.vagasTotais.toString()
+        //Tratamento de visibilidade
+        toggleVisbility(subject)
+    }
 
-        item.textTheoryTeacher.text = (subject.docenteTeoria).replace("0", "")
-        item.textSchedulesTheory.text = subject.teoria.replace("; ", "\n")
-        item.textPraticeTeacher.text = (subject.docentePratica).replace("0", "")
-        item.textSchedulesPratice.text = subject.pratica.replace("; ", "\n")
-
-
+    private fun toggleVisbility(subject: SubjectEntity){
         if (subject.docenteTeoria == "0" && subject.teoria == "") {
             item.textTheoryTeacher.visibility = View.GONE
             item.textSchedulesTheory.visibility = View.GONE
@@ -75,5 +54,41 @@ class SubjectsViewHolder(
             item.iconPratice.visibility = View.VISIBLE
         }
     }
+
+    private fun setSubjectSelectColor(subject: SubjectEntity){
+
+        item.cardViewBackground.isSelected = subject.selected
+//        item.textView.isSelected = subject.selected
+    }
+
+    private fun assignTextOnLayout(subject: SubjectEntity){
+        item.textTitleSubject.text = subject.disciplina
+        item.textCampus.text = buildString {
+            append(subject.turmaCodigo)
+            append(" | ")
+            append(subject.turno)
+            append(" | ")
+            append(subject.campus)
+        }
+        item.textCourse.text = subject.curso
+        item.textVacancies.text = subject.vagasTotais.toString()
+
+        item.textTheoryTeacher.text = (subject.docenteTeoria).replace("0", "")
+        item.textSchedulesTheory.text = subject.teoria.replace("; ", "\n")
+        item.textPraticeTeacher.text = (subject.docentePratica).replace("0", "")
+        item.textSchedulesPratice.text = subject.pratica.replace("; ", "\n")
+    }
+
+    private fun setClickSubjectListener(subject: SubjectEntity){
+        item.root.setOnLongClickListener() { //Quando clicar no item
+            onItemLongClick(
+                subject,
+                adapterPosition
+            ) //Subject é o dado e adpterPosition é a posição do item clicado
+            true //True Indica que o envento de click foi consumido
+        }
+    }
+
+
 }
 

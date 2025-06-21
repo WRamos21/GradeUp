@@ -21,7 +21,7 @@ class SelectedSubjectsViewHolder(
         setClickSubjectListener(subject)
 
         // Atribuiçao de dados
-        setTextOnLayout(subject)
+        assignTextOnLayout(subject)
 
         val schedule = when (day){
             "SEGUNDA" -> subject.segunda
@@ -32,10 +32,10 @@ class SelectedSubjectsViewHolder(
             "SABADO" -> subject.sabado
             else -> ""
         }
-        val periodicity = schedule?.substring(0, 3)
-        val timeStart = schedule?.substring(4, 9)
-        val timeEnd = schedule?.substring(12, 17)
-        val typeClass = schedule?.last().toString()
+        val periodicity = schedule.substring(0, 3)
+        val timeStart = schedule.substring(4, 9)
+        val timeEnd = schedule.substring(12, 17)
+        val typeClass = schedule.last().toString()
 
         item.textTimeStart.text = timeStart
         item.textTimeEnd.text = timeEnd
@@ -49,8 +49,6 @@ class SelectedSubjectsViewHolder(
             item.textTheory.setTextColor(ContextCompat.getColor(itemView.context, R.color.onSurface))
 
         }
-
-
 
 
         //Tramento de visbilidade
@@ -96,7 +94,7 @@ class SelectedSubjectsViewHolder(
 
     }
 
-    private fun setTextOnLayout(subject: SelectedSubjectEntity){
+    private fun assignTextOnLayout(subject: SelectedSubjectEntity){
         item.textTitleSubject.text = subject.disciplina
         item.textCampus.text = buildString {
             append(subject.turmaCodigo)

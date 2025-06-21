@@ -8,6 +8,7 @@
     <color name="onBackground">#000000</color>
     <color name="onBackgroundVariantDark">#949494</color>
     <color name="onBackgroundVariantLight">#BABABA</color>
+    <color name="onBackgroundVariantExtraLight">#FAFAFA</color>
 
     <color name="surface">#FFFFFF</color>
     <color name="onSurface">#000000</color>
