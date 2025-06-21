@@ -114,8 +114,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="theory">TEORIA:</string>
-    <string name="practice">PRÁTICA:</string>
+    <string name="theory">TEORIA: </string>
+    <string name="practice">PRÁTICA: </string>
     <string name="Schedules">Horarios</string>
     <string name="filters">Filtros</string>
     <string name="campus_sa">Santo André</string>

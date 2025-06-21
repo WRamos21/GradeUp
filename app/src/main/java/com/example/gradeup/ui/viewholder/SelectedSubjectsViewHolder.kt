@@ -1,7 +1,9 @@
 package com.example.gradeup.ui.viewholder
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gradeup.R
 import com.example.gradeup.data.local.selectedsubjects.SelectedSubjectEntity
 import com.example.gradeup.databinding.ItemScheduleBinding
 
@@ -37,6 +39,19 @@ class SelectedSubjectsViewHolder(
 
         item.textTimeStart.text = timeStart
         item.textTimeEnd.text = timeEnd
+        item.textPeriodicity.text = periodicity
+
+        if (typeClass == "T") {
+            item.textTheory.setTextColor(ContextCompat.getColor(itemView.context, R.color.primary))
+            item.textPratice.setTextColor(ContextCompat.getColor(itemView.context, R.color.onSurface))
+        } else  {
+            item.textPratice.setTextColor(ContextCompat.getColor(itemView.context, R.color.primary))
+            item.textTheory.setTextColor(ContextCompat.getColor(itemView.context, R.color.onSurface))
+
+        }
+
+
+
 
         //Tramento de visbilidade
         toggleVisbility(subject)

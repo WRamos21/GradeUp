@@ -29,11 +29,23 @@
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/inter_medium"
         android:text="00:00"
-        android:textColor="@color/onSurfaceFilter"
+        android:textColor="@color/onBackgroundVariantDark"
         android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@id/card_view_background_schedule"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_time_start" />
+
+    <TextView
+        android:id="@+id/text_periodicity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEM"
+        android:textColor="@color/onBackgroundVariantLight"
+        android:textSize="13sp"
+        android:fontFamily="@font/inter_medium"
+        app:layout_constraintStart_toStartOf="@id/text_time_start"
+        app:layout_constraintEnd_toEndOf="@id/text_time_start"
+        app:layout_constraintTop_toBottomOf="@id/text_time_end"/>
 
 
     <com.google.android.material.card.MaterialCardView
@@ -111,6 +123,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/icon_vacancies"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/icon_vacancies" />
+
 
             <ImageView
                 android:id="@+id/icon_vacancies"
