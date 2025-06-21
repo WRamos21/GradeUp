@@ -28,7 +28,7 @@ class SelectedSubjectRepository(
 
     fun deselectSubject(subject: SelectedSubjectEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            localDataBase.deselectSubject(subject)
+            localDataBase.deselectSubject(subject.codigo)
             subjectRepository.deselectSubject(subject.codigo)
         }
     }

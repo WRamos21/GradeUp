@@ -38,7 +38,7 @@ interface SelectedSubjectDAO {
     )
     fun getSelectSubjectWithDayWeek(dayWeek: String): Flow<List<SelectedSubjectEntity>>
 
-    @Delete
-    suspend fun deselectSubject(subject: SelectedSubjectEntity)
+    @Query("DELETE FROM selectedsubject WHERE codigo = :subjectCodigo ")
+    suspend fun deselectSubject(subjectCodigo: String)
 
 }
