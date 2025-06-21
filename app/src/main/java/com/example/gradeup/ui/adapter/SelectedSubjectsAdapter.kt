@@ -9,7 +9,7 @@ import com.example.gradeup.databinding.ItemScheduleBinding
 import com.example.gradeup.databinding.ItemSubjectBinding
 import com.example.gradeup.ui.viewholder.SelectedSubjectsViewHolder
 
-class SelectedSubjectsAdapter(private val onItemLongClick: (SelectedSubjectEntity, Int) -> Unit) : RecyclerView.Adapter<SelectedSubjectsViewHolder>() {
+class SelectedSubjectsAdapter(private val day: String, private val onItemLongClick: (SelectedSubjectEntity, Int) -> Unit) : RecyclerView.Adapter<SelectedSubjectsViewHolder>() {
     private var selectedSubjectList: List<SelectedSubjectEntity> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectedSubjectsViewHolder {
@@ -18,7 +18,7 @@ class SelectedSubjectsAdapter(private val onItemLongClick: (SelectedSubjectEntit
             parent,
             false
         ) // criar um LaouteInflate com o contexto da recycler, parent diz onde o item vai ser criado, false delega a propria RecyclerView colocar o item
-        return SelectedSubjectsViewHolder(view, onItemLongClick)
+        return SelectedSubjectsViewHolder(view, onItemLongClick, day)
     }
 
     override fun getItemCount(): Int {

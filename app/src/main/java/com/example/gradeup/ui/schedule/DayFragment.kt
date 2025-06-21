@@ -51,7 +51,7 @@ class DayFragment : Fragment() {
 
         //configuracao recyclerView
         binding.recyclerviewSubjectsSchedule.layoutManager = LinearLayoutManager(context)
-        adapter = SelectedSubjectsAdapter {subject, position -> //Estou intanciando SubjectAdapter passando a funçao que ele receberá
+        adapter = SelectedSubjectsAdapter(day.toString())  {subject, position -> //Estou intanciando SubjectAdapter passando a funçao que ele receberá
             selectSubjectOnLongPress(subject, position)
         }
         binding.recyclerviewSubjectsSchedule.adapter = adapter
