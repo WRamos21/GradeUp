@@ -19,8 +19,11 @@ class SelectedSubjectRepository(
 
     private var localDataBase = SelectedSubjectDatabase.getDatabase(context).selectedSubjectDAO()
 
-    suspend fun selectSubject(subject: SubjectEntity) {
-        localDataBase.selectSubject(subject.toSelectedSubjectEntity())
+    suspend fun selectSubject(listSubject: List<SubjectEntity>) {
+        val listSubjectToSelected = listSubject.map{ subjectEntity ->
+            subjectEntity.toSelectedSubjectEntity()
+        }
+        localDataBase.selectSubject(listSubjectToSelected)
     }
 
     fun deselectSubject(subject: SelectedSubjectEntity) {

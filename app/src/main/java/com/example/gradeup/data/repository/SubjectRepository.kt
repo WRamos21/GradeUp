@@ -124,11 +124,11 @@ class SubjectRepository(
         }
     }
 
-    fun selectSubject(subject: SubjectEntity) {
-        if (!subject.selected) {
+    fun selectSubject(listSubject: List<SubjectEntity>) {
+        if (!listSubject[0].selected) {
             CoroutineScope(Dispatchers.IO).launch {
-                localDataBase.toggleSelectionSubject(subject.codigo, true)
-                selectedRepository.selectSubject(subject)
+                localDataBase.toggleSelectionSubject(listSubject[0].codigo, true)
+                selectedRepository.selectSubject(listSubject)
             }
         }
     }

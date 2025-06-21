@@ -8,7 +8,9 @@ import androidx.room.PrimaryKey
 
 class SelectedSubjectEntity(
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0,
+
     @ColumnInfo(name="codigo")
     var codigo: String,
 

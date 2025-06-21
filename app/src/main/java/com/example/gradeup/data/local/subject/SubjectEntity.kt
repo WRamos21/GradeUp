@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Subject")
-class SubjectEntity(
+data class SubjectEntity(
 
     @PrimaryKey
     @ColumnInfo(name = "codigo")

@@ -17,7 +17,7 @@ interface SelectedSubjectDAO {
     suspend fun getCount(): Int
 
     @Insert
-    suspend fun selectSubject(selected: SelectedSubjectEntity)
+    suspend fun selectSubject(selecteds: List<SelectedSubjectEntity>)
 
     @Query("SELECT * FROM SelectedSubject")
     fun getAllSelectSubject(): Flow<List<SelectedSubjectEntity>>

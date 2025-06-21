@@ -32,10 +32,10 @@ class SelectedSubjectsViewHolder(
             "SABADO" -> subject.sabado
             else -> ""
         }
-        val periodicity = schedule.substring(0, 3)
-        val timeStart = schedule.substring(4, 9)
-        val timeEnd = schedule.substring(12, 17)
-        val typeClass = schedule.last().toString()
+        val periodicity = schedule?.substring(0, 3)
+        val timeStart = schedule?.substring(4, 9)
+        val timeEnd = schedule?.substring(12, 17)
+        val typeClass = schedule?.last().toString()
 
         item.textTimeStart.text = timeStart
         item.textTimeEnd.text = timeEnd
